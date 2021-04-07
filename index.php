@@ -1,3 +1,3 @@
 <<?php 
-	Echo "<h1> Bonjour </h1>;"
+	Echo "<h1> Bonjour </h1>";
 ?>
