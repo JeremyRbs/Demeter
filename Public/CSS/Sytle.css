@@ -1,4 +1,84 @@
+body{
+	background-color: #8A8A8A;
+}
+
 #img_demeter_defaut{
 	height: 80px;
 	width: 120px;
 }
+#img_chevre-miel_defaut{
+	height: 280px;
+	width: 280px;
+	float: left;
+	margin-right: 5%;
+}
+#img_savoyard_defaut{
+	height: 280px;
+	width: 280px;
+	float: left;
+	margin-right: 5%;
+}
+#bandeau-accueil{
+	background-color: #E3E3E3;
+}
+
+#nav-menu{
+	margin-left: 2% ;
+}
+
+#button-panier{
+	float: right;
+	margin-right: 2%;
+	margin-top: 1.5%;
+}
+
+#div-principal{
+	background-color: #E3E3E3;
+	margin-left: 4%;
+	margin-top: 4%;
+	margin-right: 4%;
+}
+
+#ligne-div-principal{
+	color: black;
+}
+
+#h1-nos-produits{
+	margin-left: 1%
+}
+
+.accueilFruitsLegumes{
+	background-color: white;
+	border: solid 1px black;
+}
+
+#artFraise{
+	width: 48%;
+	float: left;
+	margin-left: 1%;
+	margin-top: 1%;
+}
+
+.div-menus{
+	margin-right: 2%;
+}
+#flexCheckDefault{
+	margin-bottom: 3%;
+}
+#customRange1{
+	width: 15%;
+	float: left;
+	margin-right: 5%;
+}
+#customRange2{
+	width: 10%;
+	margin-bottom: 5%;
+	float: left;
+	margin-right: 2%;
+}
+#customRange3{
+	width: 15%;
+}
+
+
+
