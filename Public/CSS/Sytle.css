@@ -214,11 +214,43 @@ body{
 #customRange3{
 	width: 25%;
 }
+
+/*------------------------------------ FIN PAGE NOS PRODUITS ------------------------------------*/
+/*------------------------------------ DEBUT PAGE PANIER ------------------------------------*/
+#produitSelectionnes{
+	overflow:scroll; 
+	border:#000000 1px solid; 
+	width: 30%; 
+	height: 200px;
+	margin-left: 1%;
+}
+#tr_produitSelectionnes{
+	font-size: 1.5em;
+	background-color: #8A8A8A; 
+}
+
+.tableau_produitSelectionnes{
+	border:black 1px solid;
+	width: 100%;
+	height: 100%;
+	overflow:scroll;
+}
+.td_imp{
+	background-color: #CFCFCF;
+}
+.td_pair{
+
+}
+/*------------------------------------ FIN PAGE PANIER ------------------------------------*/
+/*------------------------------------ DEBUT FOOTER ------------------------------------*/
+
 footer{
 	text-align: center;
 	margin-top: 5%;
 
 }
+
+/*------------------------------------ FIN FOOTER ------------------------------------*/
 
 @media screen and (max-width: 740px){
 	#artTacos1{
@@ -272,6 +304,7 @@ footer{
 
 	#button-panier{
 		font-size: 0.5em;
+		margin-top: 27px;
 	}
 	#button-livreur{
 		font-size: 0.5em;
@@ -286,6 +319,10 @@ footer{
 	#button-cuisine{
 		font-size: 0.5em;
 	}
+
+	.liDeNav{
+	margin-top: 27px;
+}
 }/*fermeture du media max-width 740px*/
 
 @media screen and (max-width: 480px){
