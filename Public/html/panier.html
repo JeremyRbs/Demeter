@@ -15,10 +15,12 @@
 		<header>
 			<nav id="bandeau-accueil" >
 					<a href="http://localhost:8888/ProjetDemeter/DemeterRepository/Public/html/accueil.html"><img id="img_demeter_defaut" src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG"></a>
+					<li class="liDeNav">
 						<a href="http://localhost:8888/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html"><button id="nav-menu" type="submit" class="btn btn-primary">Nos produits</button></a>
-						<button type="submit" class="btn btn-primary">Cuisine</button>
-						<button type="submit" class="btn btn-primary">Cuisine</button>
-						<button type="submit" class="btn btn-primary">Livreur</button>
+						<button id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button>
+						<button id="button-gerant" type="submit" class="btn btn-primary">Gérant</button>
+						<a href="http://localhost:8888/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.html"><button id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
+					</li>
 					<a href="http://localhost:8888/ProjetDemeter/DemeterRepository/Public/html/panier.html"><button id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
 
 			</nav >
@@ -26,8 +28,58 @@
 
 		<div id="div-principal">
 			<h1 id="h1-nos-produits">Mon panier</h1><hr size="5" id="ligne-div-principal">
-				
-			</article>
+			<div id="produitSelectionnes">
+				<table class="tableau_produitSelectionnes">
+					<tr class="tableau_produitSelectionnes" id="tr_produitSelectionnes">
+						<td>Produit sélectionnés</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_imp">Produit 1</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_pair">Produit 2</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_imp">Produit 3</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_pair">Produit 4</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_imp">Produit 5</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_pair">Produit 6</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_imp">Produit 7</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_pair">Produit 8</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_imp">Produit 9</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_pair">Produit 10</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_imp">Produit 11</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_pair">Produit 12</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_imp">Produit 13</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_pair">Produit 14</td>
+					</tr>
+					<tr class="tableau_produitSelectionnes">
+						<td class="td_imp">Produit 15</td>
+					</tr>
+				</table>
+			</div>
 			<footer>
 				<a href="">Mention légal</a>
 			</footer>
