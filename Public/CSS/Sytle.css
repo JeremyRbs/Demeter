@@ -1,48 +1,159 @@
+@charset "utf-8";
+/* feuille de style CSS */
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+/* selecteur {propriété:valeur,propriété:valeur1;}*/
+
+/*------------------------------------ RESET ------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-size: 100%;
+font: inherit; vertical-align: baseline; background: transparent;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+      display: block;
+}
+/*------------------------------------ FIN RESET ------------------------------------*/
+
+/*------------------------------------ BALISE ------------------------------------*/
+h1{
+	font-size: 5em;
+}
+
+h2{
+	
+}
+
+h3{
+	
+}
+
+h4{
+	
+}
+
+nav{
+	
+}
+
 body{
-	background-color: #8A8A8A;
+	background-color: #a7ed1d;
+	font-family: Arial;
+}
+
+section{
+	border-top: dashed 5px white;
+	border-bottom: dashed 5px white;
+	margin-bottom: 2%;
+}
+
+article{
+	margin-bottom: 2%;
+}
+
+footer{
+	margin-bottom: 2%;
+}
+header{
+
+}
+/*--- FIN BALISE ---*/
+
+#wrapper{
+	margin-top: 2%;
+	margin-left: 20%;
+	margin-right: 20%;
+	background-color: #a7ed1d;
+}
+
+.clear{
+	clear: both;
+}
+
+/*------------------------------------ HEADER ------------------------------------*/
+.liDeNav{
+	display: inline;
+	padding-left: 20px;
+	float: left;
+	margin-top: 20px;
+}
+
+.lienDeNav{
+	display:inline-block;
+	margin-left: 30px;
+	margin-top: 15px;
+	color: #00a33d;
 }
 
 #img_demeter_defaut{
-	height: 80px;
-	width: 120px;
-}
-#img_chevre-miel_defaut{
-	height: 280px;
-	width: 280px;
+	height: 100%;
+	width: 140px;
 	float: left;
-	margin-right: 5%;
-}
-#img_savoyard_defaut{
-	height: 280px;
-	width: 280px;
-	float: left;
-	margin-right: 5%;
-}
-#img_3-fromages_defaut{
-	height: 280px;
-	width: 280px;
-	float: left;
-	margin-right: 5%;
-}
-#img_black-forest_defaut{
-	height: 280px;
-	width: 280px;
-	float: left;
-	margin-right: 5%;
-}
-#bandeau-accueil{
-	background-color: #E3E3E3;
 }
 
-#nav-menu{
-	margin-left: 2% ;
+#bandeau-accueil{
+	background-color: #E3E3E3;
+	height: 80px;
 }
 
 #button-panier{
 	float: right;
-	margin-right: 2%;
-	margin-top: 1.5%;
+	margin-top: 20px;
+	margin-right: 2%
 }
+
+#button-livreur{
+
+}
+/*------------------------------------ FIN HEADER ------------------------------------*/
+/*------------------------------------ ARTICLE ACCUEIL ------------------------------------*/
+
+body{
+	background-color: #8A8A8A;
+}
+
+
+#img_chevre-miel_defaut{
+	height: 100%;
+	width: 40%;
+	float: left;
+	margin-right: 5%;
+}
+#img_savoyard_defaut{
+	height: 100%;
+	width: 40%;
+	float: left;
+	margin-right: 5%;
+}
+#img_3-fromages_defaut{
+	height: 100%;
+	width: 40%;
+	float: left;
+	margin-right: 5%;
+}
+#img_black-forest_defaut{
+	height: 100%;
+	width: 40%;
+	float: left;
+	margin-right: 5%;
+}
+
+
+
 
 #div-principal{
 	background-color: #E3E3E3;
@@ -64,37 +175,127 @@ body{
 	border: solid 1px black;
 }
 
-#artFraise{
-	width: 48%;
+#artTacos1{
+	width: 49%;
 	float: left;
-	margin-left: 1%;
-	margin-top: 1%;
+}
+#artTacos2{
+	width: 49%;
+	float: right;
+}
+#artTacos3{
+	width: 49%;
+	float: left;
+}
+#artTacos4{
+	width: 49%;
+	float: right;
 }
 
 .div-menus{
 	margin-right: 2%;
+	float: right;
+	width: 50%;
 }
 #flexCheckDefault{
 	margin-bottom: 3%;
 }
 #customRange1{
-	width: 15%;
+	width: 20%;
 	float: left;
-	margin-right: 5%;
+	margin-right: 2%;
 }
 #customRange2{
-	width: 10%;
+	width: 20%;
 	margin-bottom: 5%;
 	float: left;
 	margin-right: 2%;
 }
 #customRange3{
-	width: 15%;
+	width: 25%;
 }
 footer{
 	text-align: center;
 	margin-top: 5%;
+
 }
 
+@media screen and (max-width: 740px){
+	#artTacos1{
+		display: block;
+		float: none;
+		width: 98%;
+		margin-left: 1%;
+	}
+	#artTacos2{
+		display: block;
+		float: none;
+		width: 98%;
+		margin-left: 1%;
+	}
+	#artTacos3{
+		display: block;
+		float: none;
+		width: 98%;
+			margin-left: 1%;
+	}
+	#artTacos4{
+		display: block;
+		float: none;
+		width: 98%;
+		margin-left: 1%;
+	}
+	#img_chevre-miel_defaut{
+	height: 100%;
+	width: 40%;
+	float: left;
+	margin-right: 5%;
+	}
+	#img_savoyard_defaut{
+		height: 100%;
+		width: 40%;
+		float: left;
+		margin-right: 5%;
+	}
+	#img_3-fromages_defaut{
+		height: 100%;
+		width: 40%;
+		float: left;
+		margin-right: 5%;
+	}
+	#img_black-forest_defaut{
+		height: 100%;
+		width: 40%;
+		float: left;
+		margin-right: 5%;
+	}
+
+	#button-panier{
+		font-size: 0.5em;
+	}
+	#button-livreur{
+		font-size: 0.5em;
+	}
+
+	#nav-menu{
+		font-size: 0.5em;
+	}
+	#button-gerant{
+		font-size: 0.5em;
+	}
+	#button-cuisine{
+		font-size: 0.5em;
+	}
+}/*fermeture du media max-width 740px*/
+
+@media screen and (max-width: 480px){
+	#artTacos1, #artTacos2, #artTacos3, #artTacos4{
+		display: block;
+		float: none;
+		width: 98%;
+		margin-right: 1%;
+	}
+	
+}/*fermeture du media max-width 480px*/
 
 
