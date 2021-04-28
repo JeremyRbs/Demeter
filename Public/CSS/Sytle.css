@@ -4,372 +4,377 @@
 /* selecteur {propriété:valeur,propriété:valeur1;}*/
 
 /*------------------------------------ RESET ------------------------------------*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-margin: 0;
-padding: 0;
-border: 0;
-outline: 0;
-font-size: 100%;
-font: inherit; vertical-align: baseline; background: transparent;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+	output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	background: transparent;
 }
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-      display: block;
+
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block;
 }
 /*------------------------------------ FIN RESET ------------------------------------*/
 
 /*------------------------------------ BALISE ------------------------------------*/
-h1{
+h1 {
 	font-size: 5em;
 }
 
-h2{
+h2 {
 	
 }
 
-h3{
+h3 {
 	
 }
 
-h4{
+h4 {
 	
 }
 
-nav{
+nav {
 	
 }
 
-body{
+body {
 	background-color: #a7ed1d;
 	font-family: Arial;
 }
 
-section{
+section {
 	border-top: dashed 5px white;
 	border-bottom: dashed 5px white;
 	margin-bottom: 2%;
 }
 
-article{
+article {
 	margin-bottom: 2%;
 }
 
-footer{
+footer {
 	margin-bottom: 2%;
 }
-header{
 
+header {
+	
 }
 /*--- FIN BALISE ---*/
-
-#wrapper{
+#wrapper {
 	margin-top: 2%;
 	margin-left: 20%;
 	margin-right: 20%;
 	background-color: #a7ed1d;
 }
 
-.clear{
+.clear {
 	clear: both;
 }
 
 /*------------------------------------ HEADER ------------------------------------*/
-.liDeNav{
+.liDeNav {
 	display: inline;
 	padding-left: 20px;
 	float: left;
 	margin-top: 20px;
 }
 
-.lienDeNav{
-	display:inline-block;
+.lienDeNav {
+	display: inline-block;
 	margin-left: 30px;
 	margin-top: 15px;
 	color: #00a33d;
 }
 
-#img_demeter_defaut{
+#img_demeter_defaut {
 	height: 100%;
 	width: 140px;
 	float: left;
 }
 
-#bandeau-accueil{
+#bandeau-accueil {
 	background-color: #E3E3E3;
 	height: 80px;
 }
 
-#button-panier{
+.footer {
+	background-color: #E3E3E3;
+	height: 80px;
+}
+
+#button-panier {
 	float: right;
 	margin-top: 20px;
 	margin-right: 2%
 }
 
-#button-livreur{
-
+#button-livreur {
+	
 }
 /*------------------------------------ FIN HEADER ------------------------------------*/
 /*------------------------------------ ARTICLE ACCUEIL ------------------------------------*/
-
-body{
+body {
 	background-color: #8A8A8A;
 }
 
-
-#img_chevre-miel_defaut{
-	height: 100%;
-	width: 40%;
-	float: left;
-	margin-right: 5%;
-}
-#img_savoyard_defaut{
-	height: 100%;
-	width: 40%;
-	float: left;
-	margin-right: 5%;
-}
-#img_3-fromages_defaut{
-	height: 100%;
-	width: 40%;
-	float: left;
-	margin-right: 5%;
-}
-#img_black-forest_defaut{
+#img_chevre-miel_defaut {
 	height: 100%;
 	width: 40%;
 	float: left;
 	margin-right: 5%;
 }
 
+#img_savoyard_defaut {
+	height: 100%;
+	width: 40%;
+	float: left;
+	margin-right: 5%;
+}
 
+#img_3-fromages_defaut {
+	height: 100%;
+	width: 40%;
+	float: left;
+	margin-right: 5%;
+}
 
+#img_black-forest_defaut {
+	height: 100%;
+	width: 40%;
+	float: left;
+	margin-right: 5%;
+}
 
-#div-principal{
+#div-principal {
 	background-color: #E3E3E3;
 	margin-left: 1%;
 	margin-top: 1%;
 	margin-right: 1%;
 }
 
-#ligne-div-principal{
+#ligne-div-principal {
 	color: black;
 }
 
-#h1-nos-produits{
+#h1-nos-produits {
 	margin-left: 1%
 }
 
-.accueilFruitsLegumes{
+.accueilFruitsLegumes {
 	background-color: white;
 	border: solid 1px black;
 }
 
-
-
-#artTacos1{
+#artTacos1 {
 	width: 49%;
 	float: left;
 }
-#artTacos2{
-	width: 49%;
-	float: right;
-}
-#artTacos3{
-	width: 49%;
-	float: left;
-}
-#artTacos4{
+
+#artTacos2 {
 	width: 49%;
 	float: right;
 }
 
-.div-menus{
+#artTacos3 {
+	width: 49%;
+	float: left;
+}
+
+#artTacos4 {
+	width: 49%;
+	float: right;
+}
+
+.div-menus {
 	margin-right: 2%;
 	float: right;
 	width: 50%;
 }
-#flexCheckDefault{
+
+#flexCheckDefault {
 	margin-bottom: 3%;
 }
-#customRange1{
+
+#customRange1 {
 	width: 20%;
 	float: left;
 	margin-right: 2%;
 }
-#customRange2{
+
+#customRange2 {
 	width: 20%;
 	margin-bottom: 5%;
 	float: left;
 	margin-right: 2%;
 }
-#customRange3{
+
+#customRange3 {
 	width: 25%;
 }
 
 /*------------------------------------ FIN PAGE NOS PRODUITS ------------------------------------*/
 /*------------------------------------ DEBUT PAGE PANIER ------------------------------------*/
-#artPanier1{
-	overflow:scroll; 
-	border:#000000 1px solid; 
-	width: 33%; 
+#artPanier1 {
+	overflow: scroll;
+	border: #000000 1px solid;
+	width: 33%;
 	height: 450px;
 	margin-left: 1%;
 	float: left;
 }
-#artPanier2{
-	width: 30%; 
+
+#artPanier2 {
+	width: 30%;
 	height: 350px;
 	margin-left: 3%;
 	float: left;
 	border-right: black 2px solid
 }
-#artPanier3{
-	width: 30%; 
+
+#artPanier3 {
+	width: 30%;
 	height: 350px;
 	margin-left: 3%;
 	float: left;
 }
-#artPanier4{
-	width: 30%; 
+
+#artPanier4 {
+	width: 30%;
 	height: 50px;
 	margin-left: 27%;
 	margin-top: 3%;
 	float: left;
 }
-ligneVertical{
-        border-left: 2px solid #000;
-        display: inline-block;
-        height: 130px;
-        margin: 0 20px;
-}
-#tr_produitSelectionnes{
-	font-size: 1.5em;
-	background-color: #8A8A8A; 
+
+ligneVertical {
+	border-left: 2px solid #000;
+	display: inline-block;
+	height: 130px;
+	margin: 0 20px;
 }
 
-.tableau_produitSelectionnes{
-	border:black 1px solid;
-	overflow:scroll;
+#tr_produitSelectionnes {
+	font-size: 1.5em;
+	background-color: #8A8A8A;
+}
+
+.tableau_produitSelectionnes {
+	border: black 1px solid;
+	overflow: scroll;
 	font-size: 1.2em;
 }
-.td_imp{
+
+.td_imp {
 	background-color: #CFCFCF;
 }
-.td_pair{
 
+.td_pair {
+	
 }
-#div_livraison{
-	border-right:black 2px solid;
+
+#div_livraison {
+	border-right: black 2px solid;
 	width: 30%;
 	float: right;
 }
-#aEmporter{
+
+#aEmporter {
 	margin-top: 30%;
 }
 
 /*------------------------------------ FIN PAGE PANIER ------------------------------------*/
 /*------------------------------------ DEBUT FOOTER ------------------------------------*/
-
-footer{
+footer {
 	text-align: center;
 	margin-top: 5%;
-
 }
 
 /*------------------------------------ FIN FOOTER ------------------------------------*/
-
-@media screen and (max-width: 740px){
-	#artTacos1{
+@media screen and (max-width: 740px) {
+	#artTacos1 {
 		display: block;
 		float: none;
 		width: 98%;
 		margin-left: 1%;
 	}
-	#artTacos2{
+	#artTacos2 {
 		display: block;
 		float: none;
 		width: 98%;
 		margin-left: 1%;
 	}
-	#artTacos3{
-		display: block;
-		float: none;
-		width: 98%;
-			margin-left: 1%;
-	}
-	#artTacos4{
+	#artTacos3 {
 		display: block;
 		float: none;
 		width: 98%;
 		margin-left: 1%;
 	}
-	#img_chevre-miel_defaut{
-	height: 100%;
-	width: 40%;
-	float: left;
-	margin-right: 5%;
+	#artTacos4 {
+		display: block;
+		float: none;
+		width: 98%;
+		margin-left: 1%;
 	}
-	#img_savoyard_defaut{
+	#img_chevre-miel_defaut {
 		height: 100%;
 		width: 40%;
 		float: left;
 		margin-right: 5%;
 	}
-	#img_3-fromages_defaut{
+	#img_savoyard_defaut {
 		height: 100%;
 		width: 40%;
 		float: left;
 		margin-right: 5%;
 	}
-	#img_black-forest_defaut{
+	#img_3-fromages_defaut {
 		height: 100%;
 		width: 40%;
 		float: left;
 		margin-right: 5%;
 	}
-
-	#button-panier{
+	#img_black-forest_defaut {
+		height: 100%;
+		width: 40%;
+		float: left;
+		margin-right: 5%;
+	}
+	#button-panier {
 		font-size: 0.5em;
 		margin-top: 27px;
 	}
-	#button-livreur{
+	#button-livreur {
 		font-size: 0.5em;
 	}
-
-	#nav-menu{
+	#nav-menu {
 		font-size: 0.5em;
 	}
-	#button-gerant{
+	#button-gerant {
 		font-size: 0.5em;
 	}
-	#button-cuisine{
+	#button-cuisine {
 		font-size: 0.5em;
 	}
-
-	.liDeNav{
-	margin-top: 27px;
+	.liDeNav {
+		margin-top: 27px;
 	}
-}/*fermeture du media max-width 740px*/
-
-@media screen and (max-width: 480px){
-	#artTacos1, #artTacos2, #artTacos3, #artTacos4{
+} /*fermeture du media max-width 740px*/
+@media screen and (max-width: 480px) {
+	#artTacos1, #artTacos2, #artTacos3, #artTacos4 {
 		display: block;
 		float: none;
 		width: 98%;
 		margin-right: 1%;
 	}
-	
-}/*fermeture du media max-width 480px*/
-
-
+} /*fermeture du media max-width 480px*/
