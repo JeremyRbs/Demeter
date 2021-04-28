@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -15,8 +15,11 @@
 	rel="stylesheet">
 
 <title>Accueil</title>
+
 </head>
 <body>
+	
+	
 	<header>
 		<nav id="bandeau-accueil">
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.php"><img
@@ -39,7 +42,7 @@
 
 		</nav>
 	</header>
-
+	<?php require_once 'http://localhost:8888/ProjetDemeter/DemeterRepository/controller/connexion.php'; ?>
 	<div id="div-principal">
 		<h1 id="h1-nos-produits">Bienvenu chez Demeter tacos !</h1>
 		<hr size="5" id="ligne-div-principal">
