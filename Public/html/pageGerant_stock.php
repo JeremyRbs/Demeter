@@ -13,28 +13,37 @@
 	</head>
 	<body>
 		<header>
-			<nav id="bandeau-accueil" >
-					<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html"><img id="img_demeter_defaut" src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG"></a>
-					<li class="liDeNav">
-						<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html"><button id="nav-menu" type="submit" class="btn btn-primary">Nos produits</button></a>
-						<a href="/ProjetDemeter/DemeterRepository/Public/html/pageCuisine.html"><button id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
-						<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant.html"><button id="button-gerant" type="submit" class="btn btn-primary">Gérant</button></a>
-						<a href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.html"><button id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
-					</li>
-					<a href="/ProjetDemeter/DemeterRepository/Public/html/panier.html"><button id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
+		<nav id="bandeau-accueil">
+			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.php"><img
+				id="img_demeter_defaut"
+				src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG"></a>
+			<li class="liDeNav"><a
+				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.php"><button
+						id="nav-menu" type="submit" class="btn btn-primary">Nos
+						produits</button></a> <a
+				href="/ProjetDemeter/DemeterRepository/Public/html/pageCuisine.php"><button
+						id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
+				<a
+				href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant.php"><button
+						id="button-gerant" type="submit" class="btn btn-primary">Gérant</button></a>
+				<a
+				href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.php"><button
+						id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
+			</li> <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
+					id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
 
-			</nav >
-		</header>
+		</nav>
+	</header>
 
 		<div id="div-principal">
 			<h1 id="h1-nos-produits">Gérant</h1>
-			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_stock.html"><button type="submit" class="btn btn-primary">Gestion du stock</button></a>
-			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_recettes.html"><button type="submit" class="btn btn-primary">Recettes</button></a>
-                        <a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_ingredients.html"><button type="submit" class="btn btn-primary">Ingrédients</button></a>
-			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_fournisseur.html"><button type="submit" class="btn btn-primary">Fournisseur</button></a>
+			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_stock.php"><button type="submit" class="btn btn-primary">Gestion du stock</button></a>
+			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_recettes.php"><button type="submit" class="btn btn-primary">Recettes</button></a>
+                        <a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_ingredients.php"><button type="submit" class="btn btn-primary">Ingrédients</button></a>
+			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_fournisseur.php"><button type="submit" class="btn btn-primary">Fournisseur</button></a>
                         <hr size="5" id="ligne-div-principal">
                         
-                        <h2><u>Liste des ingrédients :</u></h2><br>
+                        <h2><u>Visualisation du stock :</u></h2><br>
                         
                         <div class="row">
                             <div class="col-md-8">
@@ -68,13 +77,8 @@
                                                     <td></td>
                                             </tr>
                                     </table>
-                                
-                                <h3>Créer un nouvel ingrédient :</h3><br>
-                                <p>Pour créer son propre ingrédient, appuyez sur ce bouton :</p><br>
-                                <p>Une nouvelle ligne est apparue dans le tableau ! Vous pouvez la modifier grâce au bouton "Modifier" présent dans celle-ci.</p>
                             </div>
                         </div>
-                        
 			<footer>
 				<a href="">Mention légal</a>
 			</footer>

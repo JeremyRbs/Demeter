@@ -19,22 +19,22 @@
 <body>
 	<header>
 		<nav id="bandeau-accueil">
-			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html"><img
+			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.php"><img
 				id="img_demeter_defaut"
 				src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG"></a>
 			<li class="liDeNav"><a
-				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html"><button
+				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.php"><button
 						id="nav-menu" type="submit" class="btn btn-primary">Nos
 						produits</button></a> <a
-				href="/ProjetDemeter/DemeterRepository/Public/html/pageCuisine.html"><button
+				href="/ProjetDemeter/DemeterRepository/Public/html/pageCuisine.php"><button
 						id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
 				<a
-				href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant.html"><button
+				href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant.php"><button
 						id="button-gerant" type="submit" class="btn btn-primary">Gérant</button></a>
 				<a
-				href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.html"><button
+				href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.php"><button
 						id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
-			</li> <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.html"><button
+			</li> <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
 					id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
 
 		</nav>
