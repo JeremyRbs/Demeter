@@ -54,9 +54,7 @@ body {
 }
 
 section {
-	border-top: dashed 5px white;
-	border-bottom: dashed 5px white;
-	margin-bottom: 2%;
+	
 }
 
 article {
@@ -110,7 +108,15 @@ header {
 
 .footer {
 	background-color: #E3E3E3;
-	height: 80px;
+	margin-left: 1%;
+	margin-top: 1%;
+	margin-right: 1%;
+	height: 50px;
+
+}
+
+.centrageFooter{
+	margin-top: 1%;
 }
 
 #button-panier {
