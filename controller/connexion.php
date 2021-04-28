@@ -10,4 +10,5 @@ $bdd = "emaux";
         echo 'N° : ' . $e->getCode();
         die();
     }
+    echo "ok";
 ?>
