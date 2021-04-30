@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "lambda";
 $pwd = "lambda";
-$bdd = "emaux";
+$bdd = "PROJETDEMETER";
 	try {
         $pdo = new PDO('mysql:host=' . $host . ';dbname=' . $bdd . '','' . $user . '','' . $pwd);
     } catch (PDOException $e) {
@@ -10,5 +10,4 @@ $bdd = "emaux";
         echo 'N° : ' . $e->getCode();
         die();
     }
-    print("Base ouverte\n");
 ?>
