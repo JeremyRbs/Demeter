@@ -15,18 +15,24 @@
 	rel="stylesheet">
 <title>Livraison</title>
 
+	<?php
+// REQUETE
+require_once ('../../controller/connexion.php');
+
+?>
 </head>
 
 <body>
 	<header>
+
 		<nav id="bandeau-accueil">
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.php"><img
 				id="img_demeter_defaut"
 				src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG"></a>
 			<li class="liDeNav"><a
 				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.php"><button
-						id="nav-menu" type="submit" class="btn btn-primary">Nos
-						produits</button></a> <a
+						id="nav-menu" type="submit" class="btn btn-primary">Nos produits</button></a>
+				<a
 				href="/ProjetDemeter/DemeterRepository/Public/html/pageCuisine.php"><button
 						id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
 				<a
@@ -35,11 +41,13 @@
 				<a
 				href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.php"><button
 						id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
-			</li> <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
+			</li> <a
+				href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
 					id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
 
 		</nav>
 	</header>
+
 	<!-- 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/">Demeter Tacos</a>
@@ -74,10 +82,29 @@
 						<th>Language</th>
 					</tr>
 					<tr>
+						<?php
+    try {
+        $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
+        $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom ="+ $requete + "");
+        $requet3 = $pdo -> query("SELECT * from Detail where Num_OF = "+ $requet2+"");
+        
+        $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom")
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+    while ($commande = $requete3->fetch()) { // FETCH POUR RECUPERER LES DONNEES
+
+        ?>
+						<td><?php
+        echo $commande['NomProd	'];
+        ?></td>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td></td>
+						<?php
+
+}
+    ?>
 					</tr>
 					<tr>
 						<td></td>
@@ -88,9 +115,9 @@
 				</table>
 			</div>
 		</div>
-		<br> <span>Les trajets sont définis pour chaque livraison
-			et sont affiché sur cette map.<br>N'oubliez pas, livrer
-			rapidement est notre priorité !<br>Bonne livraison !
+		<br> <span>Les trajets sont définis pour chaque livraison et sont
+			affiché sur cette map.<br>N'oubliez pas, livrer rapidement est notre
+			priorité !<br>Bonne livraison !
 		</span> <br> <br>
 		<iframe
 			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.422945223361!2d4.84486971560188!3d46.776269779138346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f2fcc679801fdd%3A0x4a42dadcb29915dc!2sCnam%20%3A%20Conservatoire%20National%20des%20Arts%20et%20M%C3%A9tiers!5e0!3m2!1sfr!2sfr!4v1619595439783!5m2!1sfr!2sfr"
@@ -124,12 +151,13 @@
 		</div>
 
 	</div>
-	<?php ?>
+
 	<footer class="footer">
 		<div class="centrageFooter">
-		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
-		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
-		<a href="">Notre Projet</a> <a href="">Mention légal</a>
+			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
+			<a
+				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos
+				Produits</a> <a href="">Notre Projet</a> <a href="">Mention légal</a>
 		</div>
 	</footer>
 	<script
