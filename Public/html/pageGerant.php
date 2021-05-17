@@ -44,17 +44,12 @@
                         <hr size="5" id="ligne-div-principal">
                         
                         <p>Cette page est dédiée au gérant.</p>
-                        
-			<footer>
-				<a href="">Mention légal</a>
-			</footer>
-
 		</div>
 	<footer class="footer">
 		<div class="centrageFooter">
 		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
 		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
-		<a href="">Notre Projet</a> <a href="">Mention légal</a>
+		<a href="">Notre Projet</a> <a href="">Mentions légales</a>
 		</div>
 	</footer>
 		<!-- Optional JavaScript; choose one of the two! -->

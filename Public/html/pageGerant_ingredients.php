@@ -34,7 +34,9 @@
 
 		</nav>
 	</header>
-
+        
+        <?php require_once ('../../controller/connexion.php'); ?>
+            
 		<div id="div-principal">
 			<h1 id="h1-nos-produits">Gérant</h1>
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_stock.php"><button type="submit" class="btn btn-primary">Gestion du stock</button></a>
@@ -50,32 +52,21 @@
                                     <table class="table table-striped">
                                             <colgroup span="7"></colgroup>
                                             <tr>
-                                                    <th>Produit</th>
+                                                    <th>Ingrédient</th>
                                                     <th>Quantité</th>
                                                     <th>Unité</th>
                                                     <th>Prix HT</th>
                                                     <th>Fournisseur</th>
-                                                    <th>Création</th>
                                                     <th>Ajustement</th>
+                                                    <th>Action(s)</th>
                                             </tr>
-                                            <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                            </tr>
-                                            <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                            </tr>
+                                            <?php
+                                                // On récupère tout le contenu de la table PRODUIT
+                                                $sql = $pdo->query('SELECT * FROM INGREDIENT');
+                                                while($row = $sql->fetch()) {
+                                                    echo "<tr><td>".$row['NomIngred']."</td><td>".$row['StockReel']."</td><td>".$row['Unite']."</td><td>".$row['PrixUHT_Moyen']."</td><td>".$row['DateArchiv']."</td><td>".$row['DateArchiv']."</td><td>".$row['DateArchiv']."</td></tr>";
+                                                }
+                                            ?>
                                     </table>
                                 
                                 <h3>Créer un nouvel ingrédient :</h3><br>
@@ -83,17 +74,12 @@
                                 <p>Une nouvelle ligne est apparue dans le tableau ! Vous pouvez la modifier grâce au bouton "Modifier" présent dans celle-ci.</p>
                             </div>
                         </div>
-                        
-			<footer>
-				<a href="">Mention légal</a>
-			</footer>
-
 		</div>
 	<footer class="footer">
 		<div class="centrageFooter">
 		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
 		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
-		<a href="">Notre Projet</a> <a href="">Mention légal</a>
+		<a href="">Notre Projet</a> <a href="">Mentions légales</a>
 		</div>
 	</footer>
 		<!-- Optional JavaScript; choose one of the two! -->

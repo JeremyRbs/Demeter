@@ -175,7 +175,7 @@
 		<div class="centrageFooter">
 		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
 		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
-		<a href="">Notre Projet</a> <a href="">Mention légal</a>
+		<a href="">Notre Projet</a> <a href="">Mentions légales</a>
 		</div>
 	</footer>
 	
