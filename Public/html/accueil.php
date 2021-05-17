@@ -42,7 +42,7 @@
 
 		</nav>
 	</header>
-	<?php require_once ('../../controller/connexion.php');echo"ok"; ?>
+	<?php require_once ('../../controller/connexion.php'); ?>
 	<div id="div-principal">
 		<h1 id="h1-nos-produits">Bienvenu chez Demeter tacos !</h1>
 		<hr size="5" id="ligne-div-principal">
