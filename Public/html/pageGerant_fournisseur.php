@@ -39,7 +39,9 @@
 
 		</nav>
 	</header>
-
+        
+        <?php require_once ('../../controller/connexion.php'); ?>
+    
 		<div id="div-principal">
 			<h1 id="h1-nos-produits">Gérant</h1>
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_stock.php"><button type="submit" class="btn btn-primary">Gestion du stock</button></a>
@@ -62,22 +64,13 @@
                                                     <th>Téléphone</th>
                                                     <th>Par Def</th>
                                             </tr>
-                                            <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                            </tr>
-                                            <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                            </tr>
+                                            <?php
+                                                // On récupère tout le contenu de la table PRODUIT
+                                                $sql = $pdo->query('SELECT * FROM FOURNISSEUR');
+                                                while($row = $sql->fetch()) {
+                                                    echo "<tr><td>".$row['NomFourn']."</td><td>".$row['Adresse']."</td><td>".$row['CodePostal']."</td><td>".$row['Ville']."</td><td>".$row['Tel']."</td><td>".$row['ParDefaut']."</td></tr>";
+                                                }
+                                            ?>
                                     </table>
                                 
                                 <h3>Créer un nouveau fournisseur :</h3><br>
@@ -89,10 +82,9 @@
 	</div>
 	<footer class="footer">
 		<div class="centrageFooter">
-			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
-			<a
-				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos
-				Produits</a> <a href="">Notre Projet</a> <a href="">Mention légal</a>
+		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
+		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
+		<a href="">Notre Projet</a> <a href="">Mentions légales</a>
 		</div>
 	</footer>
 	<!-- Optional JavaScript; choose one of the two! -->
