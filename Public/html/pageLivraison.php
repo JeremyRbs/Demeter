@@ -85,25 +85,26 @@ require_once ('../../controller/connexion.php');
 						<?php
     try {
         $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
-        $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom ="+ $requete + "");
-        $requet3 = $pdo -> query("SELECT * from Detail where Num_OF = "+ $requet2+"");
-        
-        $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom")
+        $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom =" + $requete + "");
+        $requet3 = $pdo->query("SELECT * from Detail where Num_OF = " + $requet2 + "");
+
+        $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O'");
+
     } catch (PDOException $e) {
         print $e->getMessage();
     }
     while ($commande = $requete3->fetch()) { // FETCH POUR RECUPERER LES DONNEES
 
         ?>
-						<td><?php
+						<td>
+						<?php
         echo $commande['NomProd	'];
         ?></td>
 						<td></td>
 						<td></td>
 						<td></td>
 						<?php
-
-}
+    }
     ?>
 					</tr>
 					<tr>
