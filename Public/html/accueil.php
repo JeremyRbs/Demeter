@@ -22,7 +22,7 @@
 	
 	<header>
 		<nav id="bandeau-accueil">
-			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.php"><img
+			<a href="../../Public/html/accueil.php"><img
 				id="img_demeter_defaut"
 				src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG"></a>
 			<li class="liDeNav"><a
@@ -42,7 +42,7 @@
 
 		</nav>
 	</header>
-	<?php require_once ('../../controller/connexion.php'); ?>
+	<?php require_once ('../../controller/connexion.php');echo"ok"; ?>
 	<div id="div-principal">
 		<h1 id="h1-nos-produits">Bienvenu chez Demeter tacos !</h1>
 		<hr size="5" id="ligne-div-principal">
@@ -54,7 +54,8 @@
 		<div class="centrageFooter">
 		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
 		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
-		<a href="">Notre Projet</a> <a href="">Mention légal</a>
+		<a href="">Notre Projet</a> 
+                <a href="">Mentions légales</a>
 		</div>
 	</footer>
 
