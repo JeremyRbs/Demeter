@@ -79,7 +79,7 @@ require_once ('../../controller/connexion.php');
 						<th>ID Commande</th>
 						<th>Contenue</th>
 						<th>Heure de Livraison</th>
-						<th>Language1234</th>
+						<th>Language</th>
 					</tr>
 					<tr>
 						<?php
