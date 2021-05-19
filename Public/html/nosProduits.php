@@ -13,168 +13,106 @@
 	crossorigin="anonymous">
 <link href="/ProjetDemeter/DemeterRepository/Public/CSS/Sytle.css"
 	rel="stylesheet">
-
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <title>Nos produits</title>
 </head>
 <body>
 	<header>
 		<nav id="bandeau-accueil">
-			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.php"><img
+			<a href="../html/accueil.php"><img
 				id="img_demeter_defaut"
-				src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG"></a>
+				src="../Images/demeter.PNG"></a>
 			<li class="liDeNav"><a
-				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.php"><button
+				href="../html/nosProduits.php"><button
 						id="nav-menu" type="submit" class="btn btn-primary">Nos
 						produits</button></a> <a
-				href="/ProjetDemeter/DemeterRepository/Public/html/pageCuisine.php"><button
+				href="../html/pageCuisine.php"><button
 						id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
 				<a
-				href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant.php"><button
+				href="../html/pageGerant.php"><button
 						id="button-gerant" type="submit" class="btn btn-primary">Gérant</button></a>
 				<a
-				href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.php"><button
+				href="../html/pageLivraison.php"><button
 						id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
-			</li> <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
+			</li> <a href="../html/panier.php"><button
 					id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
 
 		</nav>
 	</header>
 
+	<?php require_once ('../../controller/connexion.php');echo"ok"; ?>
+
+
+
+
 	<div id="div-principal">
 		<h1 id="h1-nos-produits">Nos produits</h1>
 		<hr size="5" id="ligne-div-principal">
 		<section>
-		<article class="accueilFruitsLegumes" id="artTacos1">
-			<img id="img_chevre-miel_defaut" class="autreImages"
-				src="/ProjetDemeter/DemeterRepository/Public/Images/chevre-miel.jpeg">
-			<div class="div-menus">
-				<h3 class="titre-tacos">Chèvre miel</h3>
-				<p class="pdFL">Galette, escalope, salade, tomate, oignon,
-					frites, sauce fromagère, chèvre et miel.</p>
-				<br> <br> <input class="form-check-input" type="checkbox"
-					value="" id="flexCheckDefault"> <label
-					class="form-check-label" for="flexCheckDefault"> Supplèment
-					miel + 0,50€ </label>
-				<div>
-					<select class="form-select" aria-label="Default select example"
-						id="customRange2">
-						<option selected value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select> <select class="form-select" aria-label="Default select example"
-						id="customRange1">
-						<option selected value="1">S</option>
-						<option value="2">M</option>
-						<option value="3">L</option>
-						<option value="4">XL</option>
-					</select>
-					<button id="customRange3" type="submit" class="btn btn-primary">Ajouter</button>
-				</div>
-			</div>
-			<div class="clear">
-		</article>
-		<article class="accueilFruitsLegumes" id="artTacos2">
-			<img id="img_savoyard_defaut" class="autreImages"
-				src="/ProjetDemeter/DemeterRepository/Public/Images/savoyard.jpg">
-			<div class="div-menus">
-				<h3 class="titre-tacos">Savoyard</h3>
-				<p class="pdFL">Galette, viande hachée, salade, tomate, oignon,
-					crème, lardons, frites, sauce fromagère et raclette.</p>
-				<br> <input class="form-check-input" type="checkbox" value=""
-					id="flexCheckDefault"> <label class="form-check-label"
-					for="flexCheckDefault"> Supplèment lardons + 0,50€ </label>
 
-				<div class="div-choix-ajout">
-					<select class="form-select" aria-label="Default select example"
-						id="customRange2">
-						<option selected value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select> <select class="form-select" aria-label="Default select example"
-						id="customRange1">
-						<option selected value="1">S</option>
-						<option value="2">M</option>
-						<option value="3">L</option>
-						<option value="4">XL</option>
-					</select>
-					<button id="customRange3" type="submit" class="btn btn-primary">Ajouter</button>
-				</div>
-			</div>
-			<div class="clear">
-		</article>
-		<article class="accueilFruitsLegumes" id="artTacos3">
-			<img id="img_3-fromages_defaut" class="autreImages"
-				src="/ProjetDemeter/DemeterRepository/Public/Images/3-fromages.jpg">
-			<div class="div-menus">
-				<h3 class="titre-tacos">3 fromages</h3>
-				<p class="pdFL">Galette, viande hachée, salade, tomate, oignon,
-					crème, lardons, frites, sauce fromagère, blue, cheddar et emmantal.
-				</p>
-				<br> <input class="form-check-input" type="checkbox" value=""
-					id="flexCheckDefault"> <label class="form-check-label"
-					for="flexCheckDefault"> Supplèment cheddar + 0,50€ </label>
-				<div id="div-menu">
-					<select class="form-select" aria-label="Default select example"
-						id="customRange2">
-						<option selected value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select> <select class="form-select" aria-label="Default select example"
-						id="customRange1">
-						<option selected value="1">S</option>
-						<option value="2">M</option>
-						<option value="3">L</option>
-						<option value="4">XL</option>
-					</select>
-					<button id="customRange3" type="submit" class="btn btn-primary">Ajouter</button>
-				</div>
-			</div>
-			<div class="clear">
-		</article>
-		<article class="accueilFruitsLegumes" id="artTacos4">
-			<img id="img_black-forest_defaut" class="autreImages"
-				src="/ProjetDemeter/DemeterRepository/Public/Images/black-forest.jpg">
-			<div class="div-menus">
-				<h3 class="titre-tacos">Black forest</h3>
-				<p class="pdFL">Galette, merguez, salade, tomate, oignon,
-					poivrons, frites, sauce fromagère et sauce barbecue.</p>
-				<br> <input class="form-check-input" type="checkbox" value=""
-					id="flexCheckDefault"> <label class="form-check-label"
-					for="flexCheckDefault"> Supplèment champignon + 0,50€ </label>
-				<div>
-					<select class="form-select" aria-label="Default select example"
-						id="customRange2">
-						<option selected value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select> <select class="form-select" aria-label="Default select example"
-						id="customRange1">
-						<option selected value="1">S</option>
-						<option value="2">M</option>
-						<option value="3">L</option>
-						<option value="4">XL</option>
-					</select>
-					<button id="customRange3" type="submit" class="btn btn-primary">Ajouter</button>
-				</div>
-			</div>
-			
-		</article>
+
+
+<!------------------------------------------------- Debut premier tacos ------------------------------------------------->
+<!------------------------------------------------- Debut premier tacos ------------------------------------------------->
+<!------------------------------------------------- Debut premier tacos ------------------------------------------------->
+
+		<?php require_once ('../../controller/sizeAndNumberOfCM.php');?>
+
+
+<!------------------------------------------------- Fin premier tacos ------------------------------------------------->
+<!------------------------------------------------- Fin premier tacos ------------------------------------------------->
+<!------------------------------------------------- Fin premier tacos ------------------------------------------------->
+
 		<div class="clear">
 		</section>
 	</div>
-	
+
+
+<!------------------------------------------------- FIN quatrieme tacos ------------------------------------------------->
+<!------------------------------------------------- FIN quatrieme tacos ------------------------------------------------->
+<!------------------------------------------------- FIN quatrieme tacos ------------------------------------------------->
+
+<!------------------------------------------------- Debut JS ------------------------------------------------->
+<!------------------------------------------------- Debut JS ------------------------------------------------->
+<!------------------------------------------------- Debut JS ------------------------------------------------->
+                        <script type="text/javascript">
+                        	$(document).ready(function(){
+                        		var id=1;
+                        		
+	                            $("#but_1").click(function () {
+	                            	var suplementForCM=$("#val1_"+id+"").is(":checked");
+		                            var numberForCM=$('#val2_'+id+' option:selected').val();
+		                            var sizeForCM=$('#val3_1 option:selected').val();
+		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM);
+	                        	});
+	                        	$("#customRange3_2").click(function () {
+	                            	var suplementForS=$("#flexCheck_"+id+"").is(":checked");
+		                            var numberForS=$('#customRange2_'+id+' option:selected').val();
+		                            var sizeForS=$('#customRange1_'+id+' option:selected').val();
+		                            console.log(suplementForS+" "+numberForS+" "+sizeForS);
+	                        	});
+	                        	$("#customRange3_3").click(function () {
+	                            	var suplementForF=$("#flexCheck_"+id+"").is(":checked");
+		                            var numberForF=$('#customRange2_'+id+' option:selected').val();
+		                            var sizeForF=$('#customRange1_'+id+' option:selected').val();
+		                            console.log(suplementForF+" "+numberForF+" "+sizeForF);
+	                        	});
+	                        	$("#customRange3_4").click(function () {
+	                            	var suplementForBF=$("#flexCheck_"+id+"").is(":checked");
+		                            var numberForBF=$('#customRange2_'+id+' option:selected').val();
+		                            var sizeForBF=$('#customRange1_'+id+' option:selected').val();
+		                            console.log(suplementForBF+" "+numberForBF+" "+sizeForBF);
+	                        	});
+	                        	id++;
+                        	});
+                        </script>
+<!------------------------------------------------- FIN JS ------------------------------------------------->
+<!------------------------------------------------- FIN JS ------------------------------------------------->
+<!------------------------------------------------- FIN JS ------------------------------------------------->  
 	<footer class="footer">
 		<div class="centrageFooter">
-		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
-		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
+		<a href="../html/accueil.php">Accueil</a>
+		<a href="../html/nosProduits.php">Nos	Produits</a> 
 		<a href="">Notre Projet</a> <a href="">Mentions légales</a>
 		</div>
 	</footer>
