@@ -77,14 +77,20 @@
 <!------------------------------------------------- Debut JS ------------------------------------------------->
                         <script type="text/javascript">
                         	$(document).ready(function(){
-                        		var id=1;
+                        		const id=1;
                         		
-	                            $("#but_1").click(function () {
-	                            	var suplementForCM=$("#val1_"+id+"").is(":checked");
-		                            var numberForCM=$('#val2_'+id+' option:selected').val();
-		                            var sizeForCM=$('#val3_1 option:selected').val();
-		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM);
+                        		console.log(id);
+                        		console.log(idOfId);
+                        		$('[id$=but_').click(function () {
+									const idOfId=$("#idOfId").val();/////////////////////////////////////////????
+	                        		$("#but_"+id+"").click(function () {
+		                            	var suplementForCM=$("#val1_"+id+"").is(":checked");
+			                            var numberForCM=$('#val2_'+id+' option:selected').val();
+			                            var sizeForCM=$('#val3_'+id+' option:selected').val();
+			                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+idOfId+" "+id);
+	                        		});
 	                        	});
+	                            
 	                        	$("#customRange3_2").click(function () {
 	                            	var suplementForS=$("#flexCheck_"+id+"").is(":checked");
 		                            var numberForS=$('#customRange2_'+id+' option:selected').val();
@@ -103,7 +109,7 @@
 		                            var sizeForBF=$('#customRange1_'+id+' option:selected').val();
 		                            console.log(suplementForBF+" "+numberForBF+" "+sizeForBF);
 	                        	});
-	                        	id++;
+	                        	
                         	});
                         </script>
 <!------------------------------------------------- FIN JS ------------------------------------------------->
