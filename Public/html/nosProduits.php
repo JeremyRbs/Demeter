@@ -52,69 +52,69 @@
 
 
 
-<!------------------------------------------------- Debut premier tacos ------------------------------------------------->
-<!------------------------------------------------- Debut premier tacos ------------------------------------------------->
-<!------------------------------------------------- Debut premier tacos ------------------------------------------------->
-
 		<?php require_once ('../../controller/sizeAndNumberOfCM.php');?>
 
 
-<!------------------------------------------------- Fin premier tacos ------------------------------------------------->
-<!------------------------------------------------- Fin premier tacos ------------------------------------------------->
-<!------------------------------------------------- Fin premier tacos ------------------------------------------------->
-
 		<div class="clear">
 		</section>
+		<button id="button-panier" type="submit" class="btn btn-primary">Voir panier</button>
 	</div>
 
 
-<!------------------------------------------------- FIN quatrieme tacos ------------------------------------------------->
-<!------------------------------------------------- FIN quatrieme tacos ------------------------------------------------->
-<!------------------------------------------------- FIN quatrieme tacos ------------------------------------------------->
 
 <!------------------------------------------------- Debut JS ------------------------------------------------->
 <!------------------------------------------------- Debut JS ------------------------------------------------->
 <!------------------------------------------------- Debut JS ------------------------------------------------->
                         <script type="text/javascript">
-                        	$(document).ready(function(){
-                        		const id=1;
-                        		
-                        		console.log(id);
-                        		console.log(idOfId);
-                        		$('[id$=but_').click(function () {
-									const idOfId=$("#idOfId").val();/////////////////////////////////////////????
-	                        		$("#but_"+id+"").click(function () {
-		                            	var suplementForCM=$("#val1_"+id+"").is(":checked");
-			                            var numberForCM=$('#val2_'+id+' option:selected').val();
-			                            var sizeForCM=$('#val3_'+id+' option:selected').val();
-			                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+idOfId+" "+id);
-	                        		});
+                        	$(document).ready(function (){
+                        		function saveValeur(id, a, b, c){
+
+                        			var tacos = {
+                        				"tacos" : {
+                        					"id": id,
+									        "supp": a,
+									        "qte": b,
+									        "taille": c
+									    },
+                        			};
+                        			console.log(tacos);
+                        			let json = JSON.stringify(tacos);
+                        			console.log(json);
+                        			var test = jQuery.fromJSON(json);
+                        			
+                        		}
+                        		$('[id^=but_').click(function () {
+									var id=$(this).val();/////////////////////////////////////////????
+	                            	var suplementForCM=$("#val1_"+id+"").is(":checked");
+		                            var numberForCM=$('#val2_'+id+' option:selected').val();
+		                            var sizeForCM=$('#val3_'+id+' option:selected').val();
+		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+id);
+		                            $('#panier_'+id+'').html(suplementForCM+" "+numberForCM+" "+sizeForCM);
+		                            saveValeur(id, suplementForCM, numberForCM, sizeForCM);
+
+		                            
+
 	                        	});
-	                            
-	                        	$("#customRange3_2").click(function () {
-	                            	var suplementForS=$("#flexCheck_"+id+"").is(":checked");
-		                            var numberForS=$('#customRange2_'+id+' option:selected').val();
-		                            var sizeForS=$('#customRange1_'+id+' option:selected').val();
-		                            console.log(suplementForS+" "+numberForS+" "+sizeForS);
-	                        	});
-	                        	$("#customRange3_3").click(function () {
-	                            	var suplementForF=$("#flexCheck_"+id+"").is(":checked");
-		                            var numberForF=$('#customRange2_'+id+' option:selected').val();
-		                            var sizeForF=$('#customRange1_'+id+' option:selected').val();
-		                            console.log(suplementForF+" "+numberForF+" "+sizeForF);
-	                        	});
-	                        	$("#customRange3_4").click(function () {
-	                            	var suplementForBF=$("#flexCheck_"+id+"").is(":checked");
-		                            var numberForBF=$('#customRange2_'+id+' option:selected').val();
-		                            var sizeForBF=$('#customRange1_'+id+' option:selected').val();
-		                            console.log(suplementForBF+" "+numberForBF+" "+sizeForBF);
-	                        	});
+
+	                        	saveValeur();
 	                        	
+								//Objet JavaScript
+								/*var num = $('#panier').val();
+								console.log(num);*/
+
+								//Conversion en chaine JSON
+								/*let json = JSON.stringify(utilisateur);
+
+								document.getElementById("resultat").innerHTML = 
+								    "Type de la variable : " + typeof(json) + "<br>Contenu de la variable : " + json;*/
                         	});
                         </script>
+                     
 <!------------------------------------------------- FIN JS ------------------------------------------------->
 <!------------------------------------------------- FIN JS ------------------------------------------------->
 <!------------------------------------------------- FIN JS ------------------------------------------------->  
+
+
 	<footer class="footer">
 		<div class="centrageFooter">
 		<a href="../html/accueil.php">Accueil</a>

@@ -13,6 +13,10 @@
 	crossorigin="anonymous">
 <link href="/ProjetDemeter/DemeterRepository/Public/CSS/Sytle.css"
 	rel="stylesheet">
+	<?php
+		include_once("json.php");
+		echo saveValeur();
+	 ?>
 
 <title>Nos produits</title>
 </head>

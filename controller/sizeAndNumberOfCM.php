@@ -10,7 +10,8 @@
 		if($artTacos1==3){
 			$artTacos1=1;
 		}
-		echo "<article class='accueilFruitsLegumes' id='artTacos".$artTacos1."'> 
+		echo "<div id='panier_".$numId."'> a</div>
+				<article class='accueilFruitsLegumes' id='artTacos".$artTacos1."'> 
 				<img id='img_defaut' class='autreImages'src='../Images/".$row['Image']."'>
 				<div class='div-menus'> 
 					<h3 class='titre-tacos'>".$row['NomProd']."</h3> 
@@ -32,14 +33,17 @@
 						<option value='L'>L</option>
 						<option value='XL'>XL</option>
 					</select>
-					<button id='but_".$numId."' type='submit' class='btn btn-primary'>Ajouter</button>
+					<button id='but_".$numId."' value='".$numId."' type='submit' class='btn btn-primary'>Ajouter</button>
 				</div>
 			</div>
+
 			<div class='clear'>
-		</article>";
+		</article>
+		";
 		$artTacos1++;
+		
 	}
-	echo "<input id='idOfId' value='".$numId."'></input>";
+			echo"<div id='panier' value='".$numId."'> ".$numId."</div>";
 
 
 
