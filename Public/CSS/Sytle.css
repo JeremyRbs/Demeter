@@ -134,28 +134,7 @@ body {
 	background-color: #8A8A8A;
 }
 
-#img_chevre-miel_defaut {
-	height: 100%;
-	width: 40%;
-	float: left;
-	margin-right: 5%;
-}
-
-#img_savoyard_defaut {
-	height: 100%;
-	width: 40%;
-	float: left;
-	margin-right: 5%;
-}
-
-#img_3-fromages_defaut {
-	height: 100%;
-	width: 40%;
-	float: left;
-	margin-right: 5%;
-}
-
-#img_black-forest_defaut {
+#img_defaut {
 	height: 100%;
 	width: 40%;
 	float: left;
@@ -192,41 +171,23 @@ body {
 	float: right;
 }
 
-#artTacos3 {
-	width: 49%;
-	float: left;
-}
-
-#artTacos4 {
-	width: 49%;
-	float: right;
-}
-
 .div-menus {
 	margin-right: 2%;
 	float: right;
 	width: 50%;
 }
 
-#flexCheckDefault {
+
+
+.form-check-input{
 	margin-bottom: 3%;
 }
 
-#customRange1 {
-	width: 20%;
-	float: left;
-	margin-right: 2%;
-}
-
-#customRange2 {
+.form-select{
 	width: 20%;
 	margin-bottom: 5%;
 	float: left;
 	margin-right: 2%;
-}
-
-#customRange3 {
-	width: 25%;
 }
 
 /*------------------------------------ FIN PAGE NOS PRODUITS ------------------------------------*/

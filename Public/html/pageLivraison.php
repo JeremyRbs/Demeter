@@ -80,6 +80,7 @@ require_once ('../../controller/connexion.php');
 						<th>Contenue</th>
 						<th>Adresse</th>
 						<th>Heure de Livraison</th>
+
 					</tr>
 					<tr>
 						<?php
