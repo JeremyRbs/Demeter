@@ -76,42 +76,28 @@ require_once ('../../controller/connexion.php');
 				<table class="table table-striped">
 					<colgroup span="4"></colgroup>
 					<tr>
-						<th>ID Commande</th>
+						<th>Commande</th>
 						<th>Contenue</th>
+						<th>Adresse</th>
 						<th>Heure de Livraison</th>
-						<th>Language1234</th>
 					</tr>
 					<tr>
 						<?php
     try {
-        $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
-        $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom =" + $requete + "");
-        $requet3 = $pdo->query("SELECT * from Detail where Num_OF = " + $requet2 + "");
-
-        $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O'");
-
+        $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'N'");
     } catch (PDOException $e) {
         print $e->getMessage();
     }
-    while ($commande = $requete3->fetch()) { // FETCH POUR RECUPERER LES DONNEES
+    while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
 
         ?>
-						<td>
-						<?php
-        echo $commande['NomProd	'];
-        ?></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td><?php echo $commande['NomClient']; ?></td>
+						<td><?php echo $commande['NomProd']; ?></td>
+						<td><?php  echo $commande['AdrClient']; ?> </td>
+						<td><?php  echo $commande['HeureDispo']; ?></td>
 						<?php
     }
     ?>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
 					</tr>
 				</table>
 			</div>
@@ -135,18 +121,25 @@ require_once ('../../controller/connexion.php');
 						<th>Heure de Livraison</th>
 						<th>Language</th>
 					</tr>
+					<?php
+    try {
+        $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'O'");
+    } catch (PDOException $e) {
+        print $e->getMessage();
+    }
+    while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
+
+        ?>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td><?php echo $commande['NomClient']; ?></td>
+						<td><?php echo $commande['NomProd']; ?></td>
+						<td><?php  echo $commande['AdrClient']; ?> </td>
+						<td><?php  echo $commande['HeureDispo']; ?></td>
 					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
+						<?php
+    }
+    ?>
+
 				</table>
 			</div>
 		</div>

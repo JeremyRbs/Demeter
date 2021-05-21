@@ -13,8 +13,15 @@
 	crossorigin="anonymous">
 <link href="/ProjetDemeter/DemeterRepository/Public/CSS/Sytle.css"
 	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+
 
 <title>Cuisine</title>
+	<?php
+// REQUETE  lp
+require_once ('../../controller/connexion.php');
+
+?>
 </head>
 <body>
 	<header>
@@ -24,8 +31,8 @@
 				src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG"></a>
 			<li class="liDeNav"><a
 				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.php"><button
-						id="nav-menu" type="submit" class="btn btn-primary">Nos
-						produits</button></a> <a
+						id="nav-menu" type="submit" class="btn btn-primary">Nos produits</button></a>
+				<a
 				href="/ProjetDemeter/DemeterRepository/Public/html/pageCuisine.php"><button
 						id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
 				<a
@@ -34,7 +41,8 @@
 				<a
 				href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.php"><button
 						id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
-			</li> <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
+			</li> <a
+				href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
 					id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
 
 		</nav>
@@ -44,113 +52,46 @@
 		<h1 id="h1-nos-produits">Cuisine</h1>
 		<hr size="5" id="ligne-div-principal">
 
-			<article class="" id="tableuCuisine">
-				<table class="tableau_produitSelectionnes">
-						<tr class="tableau_produitSelectionnes" id="tr_produitSelectionnes">
-							<td>Commande</td>
-							<td>Horaire</td>
-							<td>Produits</td>
-							<td>Etat</td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_imp">Produit 1vhfbdjvkhbefbehbfoerbfoerblferhbfrehlbehbfv</td>
-							<td class="td_imp">Produit 1vhfbdjvkhbefbehbfoerbfoerblferhbfrehlbehbfv</td>
-							<td class="td_imp">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_imp"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_pair">Produit 2</td>
-							<td class="td_pair">Produit 2</td>
-							<td class="td_pair">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_pair"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_imp">Produit 3</td>
-							<td class="td_imp">Produit 2</td>
-							<td class="td_imp">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_imp"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_pair">Produit 4</td>
-							<td class="td_pair">Produit 2</td>
-							<td class="td_pair">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_pair"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_imp">Produit 5</td>
-							<td class="td_imp">Produit 2</td>
-							<td class="td_imp">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_imp"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_pair">Produit 6</td>
-							<td class="td_pair">Produit 2</td>
-							<td class="td_pair">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_pair"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_imp">Produit 7</td>
-							<td class="td_imp">Produit 2</td>
-							<td class="td_imp">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_imp"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_pair">Produit 8</td>
-							<td class="td_pair">Produit 2</td>
-							<td class="td_pair">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_pair"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_imp">Produit 9</td>
-							<td class="td_imp">Produit 2</td>
-							<td class="td_imp">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_imp"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_pair">Produit 10</td>
-							<td class="td_pair">Produit 2</td>
-							<td class="td_pair">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_pair"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_imp">Produit 11</td>
-							<td class="td_imp">Produit 2</td>
-							<td class="td_imp">Produit 11<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_imp"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_pair">Produit 12</td>
-							<td class="td_pair">Produit 2</td>
-							<td class="td_pair">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_pair"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_imp">Produit 13</td>
-							<td class="td_imp">Produit 2</td>
-							<td class="td_imp">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_imp"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_pair">Produit 14</td>
-							<td class="td_pair">Produit 2</td>
-							<td class="td_pair">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_pair"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-						<tr class="tableau_produitSelectionnes">
-							<td class="td_imp">Produit 15</td>
-							<td class="td_imp">Produit 2</td>
-							<td class="td_imp">Produit 2<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-							<td class="td_imp"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-						</tr>
-					</table>
+		<article class="" id="tableuCuisine">
+			<table class="table table-striped">
+				<colgroup span="4"></colgroup>
+				<tr>
+					<th>Commande</th>
+					<th>Horaire</th>
+					<th>Produits</th>
+					<th>Etat</th>
+				</tr>
 
+            	<?php
+            try {
+                $requete = $pdo->query("SELECT HeureDispo, NomClient, GROUP_CONCAT( NomProd) as NomProd from Detail JOIN com_det ON detail.Num_OF = com_det.Num_OF   JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'N'");
+            } catch (PDOException $e) {
+                print $e->getMessage();
+            }
+            while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
 
+                echo $commande['NomProd'];
+                ?>
+				<tr>
+					<td><?php echo $commande['NomClient'];?></td>
+					<td><?php echo $commande['HeureDispo']; ?></td>
+					<td><?php echo $commande['NomProd']; ?></td>
+					<td></td>
+				</tr>
+				<?php
+            }
+            ?>
+
+			</table>
+	
 	</div>
 	<footer class="footer">
 		<div class="centrageFooter">
-		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
-		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
-		<a href="">Notre Projet</a> <a href="">Mentions légales</a>
+			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
+			<a
+				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos
+				Produits</a> <a href="">Notre Projet</a> <a href="">Mentions
+				légales</a>
 		</div>
 	</footer>
 
@@ -167,5 +108,11 @@
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 		-->
+	<script type="text/javascript"> 
+              $(document).ready(function(){                                                                 
+                        $.getJSON("lectfiles3.php") 
+
+              });
+        </script>
 </body>
 </html>

@@ -11,4 +11,5 @@ $bdd = "projetdemeter";
         echo 'N° : ' . $e->getCode();
         die();
     }
+   
 ?>
