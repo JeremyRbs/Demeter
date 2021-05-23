@@ -1,3 +1,8 @@
+<?php
+// On démarre la session AVANT d'écrire du code HTML
+session_start();
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -66,37 +71,47 @@
 <!------------------------------------------------- Debut JS ------------------------------------------------->
 <!------------------------------------------------- Debut JS ------------------------------------------------->
                         <script type="text/javascript">
+                        	var i =1;
                         	$(document).ready(function (){
-                        		function saveValeur(id, a, b, c){
-
-                        			var tacos = {
-                        				"tacos" : {
-                        					"id": id,
-									        "supp": a,
-									        "qte": b,
-									        "taille": c
-									    },
-                        			};
-                        			console.log(tacos);
-                        			let json = JSON.stringify(tacos);
-                        			console.log(json);
-                        			var test = jQuery.fromJSON(json);
-                        			
-                        		}
                         		$('[id^=but_').click(function () {
+                        			
 									var id=$(this).val();/////////////////////////////////////////????
 	                            	var suplementForCM=$("#val1_"+id+"").is(":checked");
 		                            var numberForCM=$('#val2_'+id+' option:selected').val();
 		                            var sizeForCM=$('#val3_'+id+' option:selected').val();
-		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+id);
-		                            $('#panier_'+id+'').html(suplementForCM+" "+numberForCM+" "+sizeForCM);
-		                            saveValeur(id, suplementForCM, numberForCM, sizeForCM);
+		                            var idOfTacos=$('#val4_'+id).attr('value');
+		                             var numId=$('#panier').attr('value');
+		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+id+" "+numId);
+		                            
+		                            console.log(idOfTacos);
+		                            console.log(i);
+
+		                            //saveValeur(id, idOfTacos, suplementForCM, numberForCM, sizeForCM);
+		                            $.ajax(
+									{
+										url:'../../controller/json.php',
+										type:'post',
+										data:{ 
+											'id' : i,
+											'numId' : numId,
+											'idOfTacos' : idOfTacos,
+											'suplementForCM' : suplementForCM,
+											'numberForCM' : numberForCM,
+											'sizeForCM' : sizeForCM
+										 },
+										success:function(data){
+										alert(idOfTacos);
+									}
+									}
+									
+									);
+									i++;
+		                            
 
 		                            
 
 	                        	});
 
-	                        	saveValeur();
 	                        	
 								//Objet JavaScript
 								/*var num = $('#panier').val();

@@ -10,11 +10,10 @@
 		if($artTacos1==3){
 			$artTacos1=1;
 		}
-		echo "<div id='panier_".$numId."'> a</div>
-				<article class='accueilFruitsLegumes' id='artTacos".$artTacos1."'> 
+		echo "<article class='accueilFruitsLegumes' id='artTacos".$artTacos1."'> 
 				<img id='img_defaut' class='autreImages'src='../Images/".$row['Image']."'>
 				<div class='div-menus'> 
-					<h3 class='titre-tacos'>".$row['NomProd']."</h3> 
+					<h3 class='titre-tacos' id='val4_".$numId."' value='".$row['NomProd']."'>".$row['NomProd']."</h3> 
 					<p class='pdFL'>".$row['IngBase1'].", ".$row['IngBase2'].", ".$row['IngBase3'].", ".$row['IngBase4'].", ".$row['IngBase5'].", ".$row['IngBase6'].", ".$row['IngBase7'].", ".$row['IngBase8'].", ".$row['IngBase9'].", ".$row['IngBase10']."</p>
 					<br> <br> <input class='form-check-input' type='checkbox' value='' id='val1_".$numId."'> <label class='form-check-label' for='flexCheckDefault'> Supplèment ".$row['IngOpt1']." + 0,50€ </label>
 					<div>
@@ -43,7 +42,6 @@
 		$artTacos1++;
 		
 	}
-			echo"<div id='panier' value='".$numId."'> ".$numId."</div>";
 
 
 

@@ -1,3 +1,9 @@
+
+<?php
+// On démarre la session AVANT d'écrire du code HTML
+session_start();
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,10 +19,8 @@
 	crossorigin="anonymous">
 <link href="/ProjetDemeter/DemeterRepository/Public/CSS/Sytle.css"
 	rel="stylesheet">
-	<?php
-		include_once("json.php");
-		echo saveValeur();
-	 ?>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	
 
 <title>Nos produits</title>
 </head>
@@ -52,53 +56,34 @@
 			<table class="tableau_produitSelectionnes">
 				<tr class="tableau_produitSelectionnes" id="tr_produitSelectionnes">
 					<td>Produit sélectionnés</td>
+					<td>Prix</td>
 				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_imp">Produit
-						1vhfbdjvkhbefbehbfoerbfoerblferhbfrehlbehbfv</td>
+
+				<?php
+					$i = 1;
+					$prix = 0;
+					$numId = $_SESSION['numId'];
+					while ($i <= $_SESSION['i']){
+						$prixTot = $_SESSION['tacos'.$i.'_prix']*$_SESSION['tacos'.$i.'_numberForCM']."€";
+						echo "<tr class='tableau_produitSelectionnes'>
+								<td class='td_imp'> ".$_SESSION['tacos'.$i.'_numberForCM']." ".$_SESSION['tacos'.$i.'_idOfTacos']." ".$_SESSION['tacos'.$i.'_suplementForCM']." ".$_SESSION['tacos'.$i.'_sizeForCM']."</td>
+								<td class='td_imp' id='".$i."'> ".$prixTot."</td>
+							</tr>";
+						
+						$prixTotal = $prixTotal + $prixTot;
+						//echo $_SESSION['tacos'.$i.'_prix'];
+						
+						$i++;
+
+					}
+				
+				?>
+				<tr class="tableau_produitSelectionnes" id="tr_produitSelectionnes">
+					<td>Total : </td>
+					<?php echo "<td id='prixTolal' value='".$prixTotal."'>".$prixTotal."€</td>"; ?>
+
 				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_pair">Produit 2</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_imp">Produit 3</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_pair">Produit 4</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_imp">Produit 5</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_pair">Produit 6</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_imp">Produit 7</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_pair">Produit 8</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_imp">Produit 9</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_pair">Produit 10</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_imp">Produit 11</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_pair">Produit 12</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_imp">Produit 13</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_pair">Produit 14</td>
-				</tr>
-				<tr class="tableau_produitSelectionnes">
-					<td class="td_imp">Produit 15</td>
-				</tr>
+				
 			</table>
 
 
@@ -107,20 +92,22 @@
 			<h2>Livraison :</h2>
 			<br> <br>
 			<p>Adresse de livraison :</p>
+			<input type="" name="">
 			<br> <br>
 			<p>Code postal :</p>
+			<input type="" name="">
 			<br> <br>
 			<p>Ville :</p>
+			<input type="" name="">
 			<br> <br>
 			<p>Nom client :</p>
+			<input type="" name="">
 			<br> <br>
 			<p>Choix de l'emballage :</p>
 			<br> <input class="form-check-input" type="checkbox" value=""
 				id="flexCheckDefault"> <label class="form-check-label"
-				for="flexCheckDefault"> Emballage standard </label> <br> <input
-				class="form-check-input" type="checkbox" value=""
-				id="flexCheckDefault"> <label class="form-check-label"
-				for="flexCheckDefault"> Boîte(s) isothèrme(s) + 3.00€ </label>
+				for="flexCheckDefault"> Emballage standard </label> <br> 
+				<input class="form-check-input" type="checkbox" value="3" id="flexCheckDefault_1"> <label class="form-check-label" for="flexCheckDefault"> Boîte(s) isothèrme(s) + 3.00€ </label>
 
 		</article>
 		<article class="" id="artPanier3">
@@ -131,15 +118,37 @@
 
 		</article>
 		<article class="" id="artPanier4">
-			<a href=""><button id="nav-menu" type="submit"
-					class="btn btn-primary">Valider la commande</button></a>
+			<?php echo "<a id='close_session' href='../../controller/deconnexion.php'><button id='nav-menu_1' type='submit'
+					class='btn btn-primary'>Valider la commande de ".$prixTotal."€ </button></a> "?>
 		</article>
 		<div class="clear"></div>
 </div>
 
+<script type="text/javascript">
+        	var i =1;
+        	$(document).ready(function (){
+        		$('#flexCheckDefault_1').click(function () {
+        			
+        			if($("#flexCheckDefault_1").is(':checked')){
+        				var suplementForIso=$("#flexCheckDefault_1").attr('value');
+        				var prixTotal=$("#prixTolal").attr('value');
+	        			
+	        			var prix = parseFloat(suplementForIso) + parseFloat(prixTotal);
+	        			console.log(prix);
+	        			$("#nav-menu_1").html("Valider la commande de "+prix+"€");
+        			}else{
+        				var prixTotal=$("#prixTolal").attr('value');
+        				$("#nav-menu_1").html("Valider la commande de "+prixTotal+"€");
+        			}
+        			
+			});
+	});
+</script>
+
 		<!-- Optional JavaScript; choose one of the two! -->
 
-		<!-- Option 1: Bootstrap Bundle with Popper -->
+		<!-- Option 1: Bootstrap Bundle with Popper --> 
+
 		<footer class="footer">
 			<div class="centrageFooter">
 				<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
