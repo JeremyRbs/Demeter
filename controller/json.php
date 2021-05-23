@@ -27,8 +27,6 @@ echo json_encode($return_arr);
         require_once 'connexion.php';
         $i = $_POST["id"];
         $numId = $_POST["numId"];
-        echo $numId;
-        echo "bonjour";
         $idOfTacos = $_POST["idOfTacos"];
         $suplementForCM = $_POST["suplementForCM"];
         $numberForCM = $_POST["numberForCM"];

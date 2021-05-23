@@ -45,13 +45,14 @@ session_start();
 		</nav>
 	</header>
 
-	<?php require_once ('../../controller/connexion.php');echo"ok"; ?>
+	<?php require_once ('../../controller/connexion.php');?>
 
 
 
 
 	<div id="div-principal">
 		<h1 id="h1-nos-produits">Nos produits</h1>
+		<?php echo "<p id='inventaire' value='".$_SESSION['i']."'>Nos produits</p>"; ?>
 		<hr size="5" id="ligne-div-principal">
 		<section>
 
@@ -71,7 +72,8 @@ session_start();
 <!------------------------------------------------- Debut JS ------------------------------------------------->
 <!------------------------------------------------- Debut JS ------------------------------------------------->
                         <script type="text/javascript">
-                        	var i =1;
+                        	var i = $('#inventaire').attr('value');
+                        	i++;
                         	$(document).ready(function (){
                         		$('[id^=but_').click(function () {
                         			
@@ -80,8 +82,10 @@ session_start();
 		                            var numberForCM=$('#val2_'+id+' option:selected').val();
 		                            var sizeForCM=$('#val3_'+id+' option:selected').val();
 		                            var idOfTacos=$('#val4_'+id).attr('value');
-		                             var numId=$('#panier').attr('value');
+		                            var numId=$('#panier').attr('value');
+		                            var numI=$('#inventaire').attr('value');
 		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+id+" "+numId);
+		                            console.log(numI);
 		                            
 		                            console.log(idOfTacos);
 		                            console.log(i);

@@ -92,20 +92,20 @@ session_start();
 			<h2>Livraison :</h2>
 			<br> <br>
 			<p>Adresse de livraison :</p>
-			<input type="" name="">
+			<input id="adresse_de_livraison" type="" name="">
 			<br> <br>
 			<p>Code postal :</p>
-			<input type="" name="">
+			<input id="code_postal" type="" name="">
 			<br> <br>
 			<p>Ville :</p>
-			<input type="" name="">
+			<input id="ville" type="" name="">
 			<br> <br>
 			<p>Nom client :</p>
-			<input type="" name="">
+			<input id="nom_client" type="" name="">
 			<br> <br>
 			<p>Choix de l'emballage :</p>
 			<br> <input class="form-check-input" type="checkbox" value=""
-				id="flexCheckDefault"> <label class="form-check-label"
+				id="flexCheckDefault_3"> <label class="form-check-label"
 				for="flexCheckDefault"> Emballage standard </label> <br> 
 				<input class="form-check-input" type="checkbox" value="3" id="flexCheckDefault_1"> <label class="form-check-label" for="flexCheckDefault"> Boîte(s) isothèrme(s) + 3.00€ </label>
 
@@ -113,7 +113,7 @@ session_start();
 		<article class="" id="artPanier3">
 			<h2 id="aEmporter">
 				A emporter <input class="form-check-input" type="checkbox" value=""
-					id="flexCheckDefault">
+					id="flexCheckDefault_2">
 			</h2>
 
 		</article>
@@ -139,6 +139,25 @@ session_start();
         			}else{
         				var prixTotal=$("#prixTolal").attr('value');
         				$("#nav-menu_1").html("Valider la commande de "+prixTotal+"€");
+        			}
+        			
+			});
+        		$('#flexCheckDefault_2').click(function () {
+        			
+        			if($("#flexCheckDefault_2").is(':checked')){
+        				$( "#adresse_de_livraison" ).prop( "disabled", true );
+        				$( "#code_postal" ).prop( "disabled", true );
+        				$( "#ville" ).prop( "disabled", true );
+        				$( "#nom_client" ).prop( "disabled", true );
+        				$( "#flexCheckDefault_1" ).prop( "disabled", true );
+        				$( "#flexCheckDefault_3" ).prop( "disabled", true );
+        			}else{
+        				$( "#adresse_de_livraison" ).prop( "disabled", false );
+        				$( "#code_postal" ).prop( "disabled", false );
+        				$( "#ville" ).prop( "disabled", false );
+        				$( "#nom_client" ).prop( "disabled", false );
+        				$( "#flexCheckDefault_1" ).prop( "disabled", false );
+        				$( "#flexCheckDefault_3" ).prop( "disabled", false );
         			}
         			
 			});
