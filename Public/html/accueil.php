@@ -24,27 +24,22 @@
 		<nav id="bandeau-accueil">
 			<a href="../../Public/html/accueil.php"><img
 				id="img_demeter_defaut"
-				src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG"></a>
-			<li class="liDeNav"><a
-				href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.php"><button
-						id="nav-menu" type="submit" class="btn btn-primary">Nos
-						produits</button></a> <a
-				href="/ProjetDemeter/DemeterRepository/Public/html/pageCuisine.php"><button
-						id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
-				<a
-				href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant.php"><button
-						id="button-gerant" type="submit" class="btn btn-primary">Gérant</button></a>
-				<a
-				href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.php"><button
-						id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
-			</li> <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
+				src="../../Public/Images/demeter.PNG"></a>
+			<li class="liDeNav">
+				 <a href="../../Public/html/nosProduits.php"><button id="nav-menu" type="submit" class="btn btn-primary">Nos produits</button></a>
+			 <a href="../../Public/html/pageCuisine.php"><button id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
+				<a href="../../Public/html/pageGerant.php"><button id="button-gerant" type="submit" class="btn btn-primary">Gérant</button></a>
+				<a href="../../Public/html/pageLivraison.php"><button id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
+			</li> <a href="../../Public/html/panier.php"><button
 					id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
 
 		</nav>
 	</header>
-	<?php require_once ('../../controller/connexion.php');echo"ok"; ?>
+	<?php require_once ('../../controller/connexion.php'); ?>
 	<div id="div-principal">
-		<h1 id="h1-nos-produits">Bienvenu chez Demeter tacos !</h1>
+		<h1 id="h1-nos-produits">Bienvenue chez Demeter tacos ! </h1>
+		<h1 id="h1-nos-produits">Retrouvez notre sélection de Tacos juste ici -> <a href="../../Public/html/nosProduits.php"><button id="nav-menu" type="submit" class="btn btn-primary">Nos produits</button></a></h1>
+		
 		<hr size="5" id="ligne-div-principal">
 
 		</article>
@@ -52,8 +47,8 @@
 	</div>
 	<footer class="footer">
 		<div class="centrageFooter">
-		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
-		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
+		<a href="../../Public/html/accueil.html">Accueil</a>
+		<a href="../../Public/html/nosProduits.html">Nos	Produits</a> 
 		<a href="">Notre Projet</a> 
                 <a href="">Mentions légales</a>
 		</div>

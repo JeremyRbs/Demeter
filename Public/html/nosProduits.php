@@ -52,7 +52,7 @@ session_start();
 
 	<div id="div-principal">
 		<h1 id="h1-nos-produits">Nos produits</h1>
-		<?php echo "<p id='inventaire' value='".$_SESSION['i']."'>Nos produits</p>"; ?>
+		<?php echo "<p id='inventaire' value='".$_SESSION['i']."'></p>"; ?>
 		<hr size="5" id="ligne-div-principal">
 		<section>
 
