@@ -140,8 +140,13 @@ session_start();
         				var prixTotal=$("#prixTolal").attr('value');
         				$("#nav-menu_1").html("Valider la commande de "+prixTotal+"€");
         			}
+
         			
 			});
+        		$('#nav-menu_1').click(function () {
+        			alert("Votre commande a bien été transmise et elle est en cour de préparation !");    			
+			});
+
         		$('#flexCheckDefault_2').click(function () {
         			
         			if($("#flexCheckDefault_2").is(':checked')){
