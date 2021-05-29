@@ -85,16 +85,13 @@ require_once ('../../controller/connexion.php');
 					<tr>
 						<?php
     try {
-<<<<<<< Updated upstream
         $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'N'");
-=======
 //         $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
 //         $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom =" + $requete + "");
 //         $requet3 = $pdo->query("SELECT * from Detail where Num_OF = " + $requet2 + "");
 
         $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O'");
 
->>>>>>> Stashed changes
     } catch (PDOException $e) {
         print $e->getMessage();
     }
