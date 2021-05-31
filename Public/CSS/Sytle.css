@@ -33,12 +33,11 @@ h1 {
 }
 
 h2 {
-    color: white;
-    font-size: 2em;
+	
 }
 
 h3 {
-    font-weight: bold;
+	
 }
 
 h4 {
@@ -49,145 +48,10 @@ nav {
 	
 }
 
-/*--------------------------------- GERANT ---------------------------------*/
-
-.input{
-    border: none;
-    background-color: unset;
-}
-
-.button{
-    display: inline-block;
-    box-shadow: none;
-    appearance: none;
-    outline: 0;
-    background-color: #008B8B;
-    height: 45px;
-    line-height: 42px;
-    padding: 0 30px;
-    font-size: 20px;
-    border-radius: 30px;
-    color: white;
-    cursor: pointer;
-    transition: all .5s;
-    transition-timing-function: cubic-bezier(.2, 3, .4, 1);
-    user-select: none;
-    margin: auto;
-}
-
-/* Sert au background du menu des onglets */
-.tabs a, body {
-	background-color: #008B8B;
+body {
+	background-color: #a7ed1d;
 	font-family: Arial;
 }
-
-.tabs a,.tabs-content{
-    box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)
-}
-
-/* Sert à mettre la couleur du texte aux onglets */
-a{
-    text-decoration:none;
-    color:#fff;
-    font-weight: bold;
-}
-ul.tabs{
-   margin-left: 70px;
-}
-
-.tabs li,ul.tabs{
-    padding:0;
-    list-style:none;
-}
-
-.tabs li{
-    float:left;
-    display:block;
-}
-
-.tabs:after{
-    display:table;
-    content:' ';
-    clear:both;
-}
-
-.tabs a{
-    display:inline-block;
-    padding:10px 15px;
-}
-
-.tabs .active a,.tabs-content{
-    background-color:#fff;
-    color: #008B8B;
-}
-
-.tabs-content{
-    position:relative;
-    z-index:3;
-    padding:50px;
-    margin-left:70px;
-    margin-right:70px;
-}
-
-/* Sert au texte */
-.tab-content{
-    display:none;
-    color: black;
-}
-
-.tab-content.active{
-    display:block;
-}
-
-.fade{
-    opacity:0;
-    transition:opacity .3s
-}
-.fade.in{
-    opacity:1
-}
-
-.table-header {
-    background-color: #008B8B;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border-width:1.5px; 
-    border-style:solid; 
-    border-color:black;
-    font-weight: bold;
-    
-}
-.table-row {
-  background-color: #ffffff;
-  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
-}
-
-th {
-    border-width:1.5px; 
-    border-style:solid; 
-    border-color:black;
-    color: white;
-}
-
-td {
-    border-width:1px; 
-    border-style:solid; 
-    border-color:black;
-}
-
-@media screen and (max-width: 740px) {
-    
-    .tabs-content{
-        width: 50%;
-    }
-    
-}
-
-@media screen and (max-width: 480px) {
-    
-}
-/*--------------------------------------------------------------------------*/
 
 section {
 	
@@ -197,54 +61,13 @@ article {
 	margin-bottom: 2%;
 }
 
-/*------------------------------------ HEADER ------------------------------------*/
+footer {
+	margin-bottom: 2%;
+}
 
 header {
-	margin-bottom: 50px;
-}
-
-#img_demeter_defaut {
-	height: 100%;
-	width: 140px;
-	float: left;
-}
-
-#bandeau-accueil {
-	background-color: white;
-	height: 80px;
-        margin-bottom: 20px;
-}
-
-.liDeNav {
-	display: inline;
-	padding-left: 20px;
-	float: left;
-}
-
-#button-panier {
-	float: right;
-	margin-top: 20px;
-	margin-right: 2%
-}
-
-#button-livreur {
 	
 }
-
-/*------------------------------------ FIN HEADER ------------------------------------*/
-
-/*------------------------------------ DEBUT FOOTER ------------------------------------*/
-
-footer {
-	background-color: white;
-	margin-top: 5%;;
-	height: 250px;
-        text-align: center;
-        margin-bottom: 0px;
-}
-
-/*------------------------------------ FIN FOOTER ------------------------------------*/
-
 /*--- FIN BALISE ---*/
 #wrapper {
 	margin-top: 2%;
@@ -257,6 +80,55 @@ footer {
 	clear: both;
 }
 
+/*------------------------------------ HEADER ------------------------------------*/
+.liDeNav {
+	display: inline;
+	padding-left: 20px;
+	float: left;
+	margin-top: 20px;
+}
+
+.lienDeNav {
+	display: inline-block;
+	margin-left: 30px;
+	margin-top: 15px;
+	color: #00a33d;
+}
+
+#img_demeter_defaut {
+	height: 100%;
+	width: 140px;
+	float: left;
+}
+
+#bandeau-accueil {
+	background-color: #E3E3E3;
+	height: 80px;
+}
+
+.footer {
+	background-color: #E3E3E3;
+	margin-left: 1%;
+	margin-top: 1%;
+	margin-right: 1%;
+	height: 50px;
+
+}
+
+.centrageFooter{
+	margin-top: 1%;
+}
+
+#button-panier {
+	float: right;
+	margin-top: 20px;
+	margin-right: 2%
+}
+
+#button-livreur {
+	
+}
+/*------------------------------------ FIN HEADER ------------------------------------*/
 /*------------------------------------ ARTICLE ACCUEIL ------------------------------------*/
 body {
 	background-color: #8A8A8A;
@@ -389,7 +261,13 @@ ligneVertical {
 }
 
 /*------------------------------------ FIN PAGE PANIER ------------------------------------*/
+/*------------------------------------ DEBUT FOOTER ------------------------------------*/
+footer {
+	text-align: center;
+	margin-top: 5%;
+}
 
+/*------------------------------------ FIN FOOTER ------------------------------------*/
 @media screen and (max-width: 740px) {
 	#artTacos1 {
 		display: block;

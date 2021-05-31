@@ -34,7 +34,9 @@
 
 		</nav>
 	</header>
-
+        
+        <?php require_once ('../../controller/connexion.php'); ?>
+            
 		<div id="div-principal">
 			<h1 id="h1-nos-produits">Gérant</h1>
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_stock.php"><button type="submit" class="btn btn-primary">Gestion du stock</button></a>
@@ -43,7 +45,35 @@
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_fournisseur.php"><button type="submit" class="btn btn-primary">Fournisseur</button></a>
                         <hr size="5" id="ligne-div-principal">
                         
-                        <p>Cette page est dédiée au gérant.</p>
+                        <h2><u>Liste des ingrédients :</u></h2><br>
+                        
+                        <div class="row">
+                            <div class="col-md-8">
+                                    <table class="table table-striped">
+                                            <colgroup span="7"></colgroup>
+                                            <tr>
+                                                    <th>Ingrédient</th>
+                                                    <th>Quantité</th>
+                                                    <th>Unité</th>
+                                                    <th>Prix HT</th>
+                                                    <th>Fournisseur</th>
+                                                    <th>Ajustement</th>
+                                                    <th>Action(s)</th>
+                                            </tr>
+                                            <?php
+                                                // On récupère tout le contenu de la table PRODUIT
+                                                $sql = $pdo->query('SELECT * FROM INGREDIENT');
+                                                while($row = $sql->fetch()) {
+                                                    echo "<tr><td>".$row['NomIngred']."</td><td>".$row['StockReel']."</td><td>".$row['Unite']."</td><td>".$row['PrixUHT_Moyen']."</td><td>".$row['DateArchiv']."</td><td>".$row['DateArchiv']."</td><td>".$row['DateArchiv']."</td></tr>";
+                                                }
+                                            ?>
+                                    </table>
+                                
+                                <h3>Créer un nouvel ingrédient :</h3><br>
+                                <p>Pour créer son propre ingrédient, appuyez sur ce bouton :</p><br>
+                                <p>Une nouvelle ligne est apparue dans le tableau ! Vous pouvez la modifier grâce au bouton "Modifier" présent dans celle-ci.</p>
+                            </div>
+                        </div>
 		</div>
 	<footer class="footer">
 		<div class="centrageFooter">

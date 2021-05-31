@@ -34,7 +34,10 @@
 
 		</nav>
 	</header>
-
+            
+        <?php require_once ('../../controller/connexion.php'); ?>
+            
+        
 		<div id="div-principal">
 			<h1 id="h1-nos-produits">Gérant</h1>
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_stock.php"><button type="submit" class="btn btn-primary">Gestion du stock</button></a>
@@ -43,13 +46,38 @@
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant_fournisseur.php"><button type="submit" class="btn btn-primary">Fournisseur</button></a>
                         <hr size="5" id="ligne-div-principal">
                         
-                        <p>Cette page est dédiée au gérant.</p>
+                        <h2><u>Visualisation du stock :</u></h2><br>
+                        
+                        <div class="row">
+                            <div class="col-md-8">
+                                    <table class="table table-striped">
+                                            <colgroup span="7"></colgroup>
+                                            <tr>
+                                                    <th>Produit</th>
+                                                    <th>Nom Produit</th>
+                                                    <th>Taille(s)</th>
+                                                    <th>Prix HT</th>
+                                                    <th>Nombre ingrédients</th>
+                                                    <th>Options</th>
+                                                    <th>Création</th>
+                                            </tr>
+                                            
+                                            <?php
+                                                // On récupère tout le contenu de la table PRODUIT
+                                                $sql = $pdo->query('SELECT * FROM PRODUIT');
+                                                while($row = $sql->fetch()) {
+                                                    echo "<tr><td>".$row['IdProd']."</td><td>".$row['NomProd']."</td><td>".$row['Taille']."</td><td>".$row['PrixUHT']."</td><td>".$row['NbIngBase']."</td><td>".$row['NbIngOpt']."</td><td>".$row['DateArchiv']."</td></tr>";
+                                                }
+                                            ?>
+                                    </table>
+                            </div>
+                        </div>
 		</div>
 	<footer class="footer">
 		<div class="centrageFooter">
 		<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
-		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos	Produits</a> 
-		<a href="">Notre Projet</a> <a href="">Mentions légales</a>
+		<a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.html">Nos produits</a> 
+		<a href="">Notre projet</a> <a href="">Mentions légales</a>
 		</div>
 	</footer>
 		<!-- Optional JavaScript; choose one of the two! -->
