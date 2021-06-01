@@ -87,15 +87,14 @@ require_once ('../../controller/connexion.php');
 					</tr>
 					<tr>
 						<?php
-<<<<<<< Updated upstream
+/*
     try {
         $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'N'");
-//         $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
-//         $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom =" + $requete + "");
-//         $requet3 = $pdo->query("SELECT * from Detail where Num_OF = " + $requet2 + "");
+        // $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
+        // $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom =" + $requete + "");
+        // $requet3 = $pdo->query("SELECT * from Detail where Num_OF = " + $requet2 + "");
 
         $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O'");
-
     } catch (PDOException $e) {
         print $e->getMessage();
     }
@@ -108,7 +107,7 @@ require_once ('../../controller/connexion.php');
 						<td><?php  echo $commande['HeureDispo']; ?></td>
 						<?php
     }
-=======
+*/
     /*
      * try {
      * // $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'N'");
@@ -131,7 +130,7 @@ require_once ('../../controller/connexion.php');
      * <?php
      * }
      */
->>>>>>> Stashed changes
+
     ?>
 					</tr>
 				</table>
@@ -176,7 +175,7 @@ require_once ('../../controller/connexion.php');
      * // }
      */
     ?>
-<tr>
+					<tr>
 					</tr>
 				</table>
 			</div>
@@ -184,18 +183,19 @@ require_once ('../../controller/connexion.php');
 
 	</div>
 	<script type="text/javascript"> 
-	   var id;
+	   let id;
               $(document).ready(function(){     
                                                
                   $.getJSON( "lectfiles4.php", function(mess) {
 
               		$.each(mess, function(key,val){
-                  		$('#benLaFrappe2').append("<tr><td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> + <td> <input type='checkbox' id='subscribeNews'> <td> </tr>");
+                  		$('#benLaFrappe2').append("<tr id= "+ val['numCom']+ "><td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> + <td> <input type='checkbox' id='subscribeNews'> <td> </tr>");
                   		
                       	});
 
               		$('#benLaFrappe2').delegate('input:checkbox', 'change', function(){	 
-              		
+                        id = $(this).parent().parent().attr('id');
+                  		
                       	if(this.checked) {
                           $(this).parents("table tr").remove();
 
@@ -220,7 +220,6 @@ require_once ('../../controller/connexion.php');
               
    	</script>
 	<script type="text/javascript"> 
-	   var id;
               $(document).ready(function(){     
                                                
                   $.getJSON( "lectfiles5.php", function(mess) {

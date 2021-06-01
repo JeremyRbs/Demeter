@@ -89,7 +89,7 @@ require_once ('../../controller/connexion.php');
 	</div>
 
 	<script type="text/javascript"> 
-	   var id;
+	   let id;
               $(document).ready(function(){     
                                                
                   $.getJSON( "lectfiles3.php", function(mess) {
@@ -100,7 +100,8 @@ require_once ('../../controller/connexion.php');
                       	});
 
               		$('#benLaFrappe').delegate('input:checkbox', 'change', function(){	 
-              		let id = document.getElementById();
+                        id = $(this).parent().parent().attr('id');
+                        console.log(id);
                       	if(this.checked) {
                           $(this).parents("table tr").remove();
 
