@@ -18,12 +18,12 @@
 
 <title>Cuisine</title>
 	<?php
-// REQUETE  lp
+// REQUETE lp
 require_once ('../../controller/connexion.php');
 
 ?>
 </head>
-<body>
+<body onLoad="window.setTimeout('history.go(0)', 10000)">
 	<header>
 		<nav id="bandeau-accueil">
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.php"><img
@@ -51,9 +51,8 @@ require_once ('../../controller/connexion.php');
 	<div id="div-principal">
 		<h1 id="h1-nos-produits">Cuisine</h1>
 		<hr size="5" id="ligne-div-principal">
-
 		<article class="" id="tableuCuisine">
-			<table class="table table-striped">
+			<table class="table table-striped" id="benLaFrappe">
 				<colgroup span="4"></colgroup>
 				<tr>
 					<th>Commande</th>
@@ -62,29 +61,69 @@ require_once ('../../controller/connexion.php');
 					<th>Etat</th>
 				</tr>
 
-            	<?php
-            try {
-                $requete = $pdo->query("SELECT HeureDispo, NomClient, GROUP_CONCAT( NomProd) as NomProd from Detail JOIN com_det ON detail.Num_OF = com_det.Num_OF   JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'N'");
-            } catch (PDOException $e) {
-                print $e->getMessage();
-            }
-            while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
-
-                echo $commande['NomProd'];
-                ?>
+				<!--             	<?php
+    /*
+     * try {
+     * $requete = $pdo->query("SELECT HeureDispo, NomClient, GROUP_CONCAT( NomProd) as NomProd from Detail JOIN com_det ON detail.Num_OF = com_det.Num_OF JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'N' GROUP BY NomClient");
+     * } catch (PDOException $e) {
+     * print $e->getMessage();
+     * }
+     * while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
+     *
+     * echo $commande['NomProd'];
+     * ?>
+     * <tr>
+     * <td><?php echo $commande['NomClient'];?></td>
+     * <td><?php echo $commande['HeureDispo']; ?></td>
+     * <td><?php echo $commande['NomProd']; ?></td>
+     * <td></td>
+     * </tr>
+     * <?php
+     * }
+     */
+    ?>-->
 				<tr>
-					<td><?php echo $commande['NomClient'];?></td>
-					<td><?php echo $commande['HeureDispo']; ?></td>
-					<td><?php echo $commande['NomProd']; ?></td>
-					<td></td>
 				</tr>
-				<?php
-            }
-            ?>
-
 			</table>
 	
 	</div>
+
+	<script type="text/javascript"> 
+	   var id;
+              $(document).ready(function(){     
+                                               
+                  $.getJSON( "lectfiles3.php", function(mess) {
+
+              		$.each(mess, function(key,val){
+                  		$('#benLaFrappe').append("<tr id= "+ val['numCom']+"> <td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> + <td> <input type='checkbox' id='subscribeNews'> <td> <td type = hidden>"+ val['numCom'] +"</td></tr>");                  		
+                  	
+                      	});
+
+              		$('#benLaFrappe').delegate('input:checkbox', 'change', function(){	 
+              		let id = document.getElementById();
+                      	if(this.checked) {
+                          $(this).parents("table tr").remove();
+
+                       
+//                       		$.getJSON( "modifierCommande.php", id, function(mess) {
+      				$.ajax({
+                        url: "modifierCommande.php",
+                        type: "GET",
+                        data: { 'id' : id },                   
+                        success: function()
+                                    {
+                                        alert("ok");                                    
+                                    }
+                    });
+//                       		});    
+                        }
+              		});  
+
+                  });             
+              	                	 
+              });
+              
+        </script>
 	<footer class="footer">
 		<div class="centrageFooter">
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
@@ -108,11 +147,6 @@ require_once ('../../controller/connexion.php');
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 		-->
-	<script type="text/javascript"> 
-              $(document).ready(function(){                                                                 
-                        $.getJSON("lectfiles3.php") 
 
-              });
-        </script>
 </body>
 </html>
