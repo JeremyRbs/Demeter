@@ -62,10 +62,11 @@ session_start();
 				<?php
 					$i = 1;
 					$prix = 0;
-					$numId = $_SESSION['numId'];
+					$IdTacos = $_SESSION['tacos3'.$i];
+					//$numId = $_SESSION['numId'];
 					while ($i <= $_SESSION['i']){
 						$prixTot = $_SESSION['tacos'.$i.'_prix']*$_SESSION['tacos'.$i.'_numberForCM']."€";
-						echo "<tr class='tableau_produitSelectionnes'>
+						echo "<tr class='tableau_produitSelectionnes' >
 								<td class='td_imp'> ".$_SESSION['tacos'.$i.'_numberForCM']." ".$_SESSION['tacos'.$i.'_idOfTacos']." ".$_SESSION['tacos'.$i.'_suplementForCM']." ".$_SESSION['tacos'.$i.'_sizeForCM']."</td>
 								<td class='td_imp' id='".$i."'> ".$prixTot."</td>
 							</tr>";
@@ -78,7 +79,7 @@ session_start();
 					}
 				
 				?>
-				<tr class="tableau_produitSelectionnes" id="tr_produitSelectionnes">
+				<tr class="tableau_produitSelectionnes" id="tr_produitSelectionnes" >
 					<td>Total : </td>
 					<?php echo "<td id='prixTolal' value='".$prixTotal."'>".$prixTotal."€</td>"; ?>
 
@@ -90,18 +91,21 @@ session_start();
 		</article>
 		<article class="" id="artPanier2">
 			<h2>Livraison :</h2>
-			<br> <br>
+			<br>
 			<p>Adresse de livraison :</p>
 			<input id="adresse_de_livraison" type="" name="">
-			<br> <br>
+			<br>
 			<p>Code postal :</p>
 			<input id="code_postal" type="" name="">
-			<br> <br>
+			<br>
 			<p>Ville :</p>
 			<input id="ville" type="" name="">
-			<br> <br>
+			<br>
 			<p>Nom client :</p>
 			<input id="nom_client" type="" name="">
+			<br>
+			<p>Numéro de téléphone :</p>
+			<input id="tel_client" type="" name="">
 			<br> <br>
 			<p>Choix de l'emballage :</p>
 			<br> <input class="form-check-input" type="checkbox" value=""
@@ -111,15 +115,16 @@ session_start();
 
 		</article>
 		<article class="" id="artPanier3">
-			<h2 id="aEmporter">
+			<h2 id='aEmporter'>"
 				A emporter <input class="form-check-input" type="checkbox" value=""
 					id="flexCheckDefault_2">
 			</h2>
 
 		</article>
 		<article class="" id="artPanier4">
-			<?php echo "<a id='close_session' href='../../controller/deconnexion.php'><button id='nav-menu_1' type='submit'
-					class='btn btn-primary'>Valider la commande de ".$prixTotal."€ </button></a> "?>
+			<?php echo "<p id='inventaire' value='".$_SESSION['i']."'></p>"; ?>
+
+			<?php echo "<button id='nav-menu_1' type='submit' class='btn btn-primary'>Valider la commande de ".$prixTotal."€ </button> "?>
 		</article>
 		<div class="clear"></div>
 </div>
@@ -144,25 +149,54 @@ session_start();
         			
 			});
         		$('#nav-menu_1').click(function () {
-        			alert("Votre commande a bien été transmise et elle est en cour de préparation !");    			
+        			var validation=$('#inventaire').attr('value');  
+        			var adresse_de_livraison=$('#adresse_de_livraison').val(); 
+        			console.log(adresse_de_livraison);	
+        			var code_postal=$('#code_postal').val(); 
+        			console.log(code_postal);	
+        			var ville=$('#ville').val(); 
+        			console.log(ville);	
+        			var nom_client=$('#nom_client').val(); 
+        			console.log(nom_client);
+        			var tel_client=$('#tel_client').val(); 
+        			console.log(tel_client);	
+        			var emballage=$("#flexCheckDefault_3").is(":checked");	
+        			console.log(emballage);
+        			var livraison=$("#flexCheckDefault_2").is(":checked");	
+        			console.log(livraison);
+        			
+        			$.ajax(
+						{
+							url:'../../controller/deconnexion.php',
+							type:'post',
+							data:{ 
+								'adresse_de_livraison' : adresse_de_livraison,
+								'code_postal' : code_postal,
+								'ville' : ville,
+								'nom_client' : nom_client,
+								'tel_client' : tel_client,
+								'emballage' : emballage,
+								'livraison' : livraison
+							 },
+							success:function(data){
+								location.reload(true);
+							
+						}
+						}
+						
+						);	
+        			
+        			
+        		alert("Votre commande est en préparation !");
 			});
-
         		$('#flexCheckDefault_2').click(function () {
         			
         			if($("#flexCheckDefault_2").is(':checked')){
         				$( "#adresse_de_livraison" ).prop( "disabled", true );
-        				$( "#code_postal" ).prop( "disabled", true );
         				$( "#ville" ).prop( "disabled", true );
-        				$( "#nom_client" ).prop( "disabled", true );
-        				$( "#flexCheckDefault_1" ).prop( "disabled", true );
-        				$( "#flexCheckDefault_3" ).prop( "disabled", true );
         			}else{
         				$( "#adresse_de_livraison" ).prop( "disabled", false );
-        				$( "#code_postal" ).prop( "disabled", false );
         				$( "#ville" ).prop( "disabled", false );
-        				$( "#nom_client" ).prop( "disabled", false );
-        				$( "#flexCheckDefault_1" ).prop( "disabled", false );
-        				$( "#flexCheckDefault_3" ).prop( "disabled", false );
         			}
         			
 			});

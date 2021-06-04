@@ -13,6 +13,9 @@
 	crossorigin="anonymous">
 <link href="/ProjetDemeter/DemeterRepository/Public/CSS/Sytle.css"
 	rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+
 <title>Livraison</title>
 
 	<?php
@@ -73,7 +76,7 @@ require_once ('../../controller/connexion.php');
 		<h2>Commande à livrer</h2>
 		<div class="row">
 			<div class="col-md-8">
-				<table class="table table-striped">
+				<table class="table table-striped" id="benLaFrappe2">
 					<colgroup span="4"></colgroup>
 					<tr>
 						<th>Commande</th>
@@ -84,17 +87,16 @@ require_once ('../../controller/connexion.php');
 					</tr>
 					<tr>
 						<?php
+/*
     try {
-<<<<<<< Updated upstream
-        $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'N'");
-=======
+
 //         $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
 //         $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom =" + $requete + "");
 //         $requet3 = $pdo->query("SELECT * from Detail where Num_OF = " + $requet2 + "");
 
         $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O'");
 
->>>>>>> Stashed changes
+
     } catch (PDOException $e) {
         print $e->getMessage();
     }
@@ -107,6 +109,30 @@ require_once ('../../controller/connexion.php');
 						<td><?php  echo $commande['HeureDispo']; ?></td>
 						<?php
     }
+*/
+    /*
+     * try {
+     * // $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'N'");
+     * // $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
+     * // $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom =" + $requete + "");
+     * // $requet3 = $pdo->query("SELECT * from Detail where Num_OF = " + $requet2 + "");
+     *
+     * $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O'");
+     *
+     * } catch (PDOException $e) {
+     * print $e->getMessage();
+     * }
+     * while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
+     *
+     * ?>
+     * <td><?php echo $commande['NomClient']; ?></td>
+     * <td><?php echo $commande['NomProd']; ?></td>
+     * <td><?php echo $commande['AdrClient']; ?> </td>
+     * <td><?php echo $commande['HeureDispo']; ?></td>
+     * <?php
+     * }
+     */
+
     ?>
 					</tr>
 				</table>
@@ -123,7 +149,7 @@ require_once ('../../controller/connexion.php');
 		<h2>Commande livré</h2>
 		<div class="row">
 			<div class="col-md-8">
-				<table class="table table-striped">
+				<table class="table table-striped" id="benLaFrappe3">
 					<colgroup span="4"></colgroup>
 					<tr>
 						<th>ID Commande</th>
@@ -132,30 +158,85 @@ require_once ('../../controller/connexion.php');
 						<th>Language</th>
 					</tr>
 					<?php
-    try {
-        $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'O'");
-    } catch (PDOException $e) {
-        print $e->getMessage();
-    }
-    while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
-
-        ?>
-					<tr>
-						<td><?php echo $commande['NomClient']; ?></td>
-						<td><?php echo $commande['NomProd']; ?></td>
-						<td><?php  echo $commande['AdrClient']; ?> </td>
-						<td><?php  echo $commande['HeureDispo']; ?></td>
-					</tr>
-						<?php
-    }
+    /*
+     * try {
+     * // $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'O'");
+     * // } catch (PDOException $e) {
+     * // print $e->getMessage();
+     * // }
+     * // while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
+     *
+     * ?>
+     * <!-- <tr>
+     * <td><?php echo $commande['NomClient']; ?></td>
+     * <td><?php echo $commande['NomProd']; ?></td>
+     * <td><?php echo $commande['AdrClient']; ?> </td>
+     * <td><?php echo $commande['HeureDispo']; ?></td>
+     * </tr> -->
+     * <?php
+     * // }
+     */
     ?>
-
+					<tr>
+					</tr>
 				</table>
 			</div>
 		</div>
 
 	</div>
+	<script type="text/javascript"> 
+	   let id;
+              $(document).ready(function(){     
+                                               
+                  $.getJSON( "lectfiles4.php", function(mess) {
 
+              		$.each(mess, function(key,val){
+                  		$('#benLaFrappe2').append("<tr id= "+ val['numCom']+ "><td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> + <td> <input type='checkbox' id='subscribeNews'> <td> </tr>");
+                  		
+                      	});
+
+              		$('#benLaFrappe2').delegate('input:checkbox', 'change', function(){	 
+                        id = $(this).parent().parent().attr('id');
+                  		
+                      	if(this.checked) {
+                          $(this).parents("table tr").remove();
+
+                       
+//                       		$.getJSON( "modifierCommande.php", id, function(mess) {
+      				$.ajax({
+                        url: "modifierCommande2.php",
+                        type: "GET",
+                        data: { 'id' : id },                   
+                        success: function()
+                                    {
+                                        alert("ok");                                    
+                                    }
+                    });
+//                       		});    
+                        }
+              		});  
+
+                  });             
+              	                	 
+              });
+              
+   	</script>
+	<script type="text/javascript"> 
+              $(document).ready(function(){     
+                                               
+                  $.getJSON( "lectfiles5.php", function(mess) {
+
+              		$.each(mess, function(key,val){
+                  		$('#benLaFrappe3').append("<tr><td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> + <td> <input type='checkbox' id='subscribeNews'> <td> </tr>");
+                  		
+                      	});
+  
+
+                  });             
+              	                	 
+              });
+              
+   	</script>
 	<footer class="footer">
 		<div class="centrageFooter">
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>

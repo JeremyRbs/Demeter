@@ -12,58 +12,51 @@ session_start();
 
 <!-- Bootstrap CSS -->
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
-<link href="/ProjetDemeter/DemeterRepository/Public/CSS/Sytle.css"
-	rel="stylesheet">
-<script src="https://code.jquery.com/jquery-latest.js"></script>
-<title>Nos produits</title>
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> <!-- importation d'une bibliothèque bootstrap --><!--  -->
+<link href="../CSS/Sytle.css" rel="stylesheet"> <!-- importation de ma feuille de style  CSS  Public/CSS/Style.css-->
+<script src="https://code.jquery.com/jquery-latest.js"></script><!-- Importation de jquery -->
+<title>Nos produits</title> <!-- titre de la page -->
 </head>
 <body>
+
+
+
+
 	<header>
 		<nav id="bandeau-accueil">
-			<a href="../html/accueil.php"><img
-				id="img_demeter_defaut"
-				src="../Images/demeter.PNG"></a>
-			<li class="liDeNav"><a
-				href="../html/nosProduits.php"><button
-						id="nav-menu" type="submit" class="btn btn-primary">Nos
-						produits</button></a> <a
-				href="../html/pageCuisine.php"><button
-						id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
-				<a
-				href="../html/pageGerant.php"><button
-						id="button-gerant" type="submit" class="btn btn-primary">Gérant</button></a>
-				<a
-				href="../html/pageLivraison.php"><button
-						id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
-			</li> <a href="../html/panier.php"><button
-					id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
+			<a href="../html/accueil.php"><img id="img_demeter_defaut" src="../Images/demeter.PNG"></a>
+			<li class="liDeNav"><a href="../html/nosProduits.php"><button id="nav-menu" type="submit" class="btn btn-primary">Nos produits</button></a> <a href="../html/pageCuisine.php"><button id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
+				<a href="../html/pageGerant.php"><button id="button-gerant" type="submit" class="btn btn-primary">Gérant</button></a>
+				<a href="../html/pageLivraison.php"><button id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
+			</li> <a href="../html/panier.php"><button id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
 
 		</nav>
 	</header>
 
-	<?php require_once ('../../controller/connexion.php');?>
 
 
 
 
-	<div id="div-principal">
-		<h1 id="h1-nos-produits">Nos produits</h1>
-		<?php echo "<p id='inventaire' value='".$_SESSION['i']."'></p>"; ?>
-		<hr size="5" id="ligne-div-principal">
+	<?php require_once ('../../controller/connexion.php');?> <!-- importation de ma page php pour se connecter au serveur sql Controller/connexion.php -->
+
+
+
+
+		<div id="div-principal">
+		<h1 id="h1-nos-produits">Nos produits</h1> <!-- Titre de ma div principal -->
+		<?php echo "<p id='inventaire' value='".$_SESSION['i']."'></p>"; ?> <!-- Cette balise <p> "invisible" me permet de récupérer la variable du nombre de  tacos commandé sur cette page qui est stocker dans ma session plus bas. Par exemple si je prend 2 tacos sur ma page nos produit, que je change de page et que je reviens pour prendre plus de tacos, alors, cette varible me sera retourné avec la valeur 2 ce qui me permet de la garder en mémoire pour mon panier -->
+		<hr size="5" id="ligne-div-principal"> <!-- Petit ligne de séparation pour le style -->
 		<section>
 
+<!------------------------------------------------- Importation de mon php ------------------------------------------------->
+
+			<?php require_once ('../../controller/sizeAndNumberOfCM.php');?> <!-- Voici le plus important, l'importation de mes tacos depuis ma page php controller/sizeAndNumberOfCM, celle ci va me permettre d'afficher toutes les sorte de tacos présent dans ma base, voir ce fichier pour plus d'explication -->
+
+<!------------------------------------------------- Importation de mon php ------------------------------------------------->
 
 
-		<?php require_once ('../../controller/sizeAndNumberOfCM.php');?>
-
-
-		<div class="clear">
+			<div class="clear">
 		</section>
-		<button id="button-panier" type="submit" class="btn btn-primary">Voir panier</button>
 	</div>
 
 
@@ -72,60 +65,48 @@ session_start();
 <!------------------------------------------------- Debut JS ------------------------------------------------->
 <!------------------------------------------------- Debut JS ------------------------------------------------->
                         <script type="text/javascript">
-                        	var i = $('#inventaire').attr('value');
-                        	i++;
-                        	$(document).ready(function (){
-                        		$('[id^=but_').click(function () {
+                        	var i = $('#inventaire').attr('value'); // Sauvegarde de ma variable précedement appeler en php (ne contient rien lors des premier choix de tacos)
+                        	i++; //augmentation de cette variable, puisqu'il n'y a rien a la base elle n'incrémente rien. Mais si la personne revient sur cette page pour reprendre des tacos alors la varible precedement enregistrer sera augmenter de 1
+                        	$(document).ready(function (){ // attend que la page soit charger 
+                        		$('[id^=but_').click(function () { // Quand on clique sur les boutons avec l'id qui commmence par but (soit les boutons ajouter)
                         			
-									var id=$(this).val();/////////////////////////////////////////????
-	                            	var suplementForCM=$("#val1_"+id+"").is(":checked");
-		                            var numberForCM=$('#val2_'+id+' option:selected').val();
-		                            var sizeForCM=$('#val3_'+id+' option:selected').val();
-		                            var idOfTacos=$('#val4_'+id).attr('value');
-		                            var numId=$('#panier').attr('value');
-		                            var numI=$('#inventaire').attr('value');
-		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+id+" "+numId);
-		                            console.log(numI);
+									var id=$(this).val(); // Recup d'id de ces boutons 
+	                            	var suplementForCM=$("#val1_"+id+"").is(":checked");  // Recup la valeur en true ou false du bouton suplement 
+		                            var numberForCM=$('#val2_'+id+' option:selected').val(); // Recup la valeur du nombre de tacos a enregistrer 
+		                            var sizeForCM=$('#val3_'+id+' option:selected').val(); // Recup la valeur de la taille du tacos 
+		                            var idOfTacos=$('#val4_'+id).attr('value'); // Recup le nom du tacos
+		                            //var numId=$('#panier').attr('value');
+		                            var numI=$('#inventaire').attr('value'); //Mise a jour de la varible 
+		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+id+" "+numId); // code pour debug
+		                            console.log(numI); // code pour debug
 		                            
-		                            console.log(idOfTacos);
-		                            console.log(i);
-
-		                            //saveValeur(id, idOfTacos, suplementForCM, numberForCM, sizeForCM);
-		                            $.ajax(
-									{
-										url:'../../controller/json.php',
-										type:'post',
-										data:{ 
-											'id' : i,
+		                            console.log(idOfTacos); // code pour debug
+		                            console.log(i); // code pour debug
+		                            $.ajax( //envoie d'un requete ajax 
+									{ // debut requete ajax
+										url:'../../controller/json.php', // envoie vers ce fichier
+										type:'post', // envoie avec la methode post
+										data:{  // debut du tableau de données 
+											'id' : i, 
 											'numId' : numId,
+											'numI' : numI,
 											'idOfTacos' : idOfTacos,
 											'suplementForCM' : suplementForCM,
 											'numberForCM' : numberForCM,
 											'sizeForCM' : sizeForCM
-										 },
-										success:function(data){
-										alert(idOfTacos);
-									}
+										 }, // fin tableau de données 
+										success:function(data){ // fonction a faire en cas de succes 
+											alert(idOfTacos); 
+										} 
 									}
 									
 									);
-									i++;
-		                            
+									i++; // on incrémante pour ne pas effacer les premieres valeurs
+		                           
 
 		                            
 
 	                        	});
-
-	                        	
-								//Objet JavaScript
-								/*var num = $('#panier').val();
-								console.log(num);*/
-
-								//Conversion en chaine JSON
-								/*let json = JSON.stringify(utilisateur);
-
-								document.getElementById("resultat").innerHTML = 
-								    "Type de la variable : " + typeof(json) + "<br>Contenu de la variable : " + json;*/
                         	});
                         </script>
                      
