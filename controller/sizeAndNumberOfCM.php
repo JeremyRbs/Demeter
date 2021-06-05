@@ -1,13 +1,13 @@
 
 
 <?php
-	$sql = "SELECT * FROM PRODUIT WHERE NbIngOpt=1 AND Taille='M'";
-	$req = $pdo->query($sql);
-	$artTacos1 = 1;
-	$numId = 0; //////// ??????????????????????
-	while($row = $req->fetch()) {
-		$numId++;
-		if($artTacos1==3){
+	$sql = "SELECT * FROM PRODUIT WHERE NbIngOpt=1 AND Taille='M'"; // requete dans ma base pour avoir un "model" qui va me servir a prendre toute les infos que j'ai besoin pour la création d'un tacos
+	$req = $pdo->query($sql); //envoie de la requete a la base
+	$artTacos1 = 1; // cette variable me permet de gerer le css, cest a dire que tout les deux articles, la classe change pour mettre le tacos a droite ou a gauche 
+	$numId = 0; // initialisation de numId qui va me permettre de 
+	while($row = $req->fetch()) { // la boucle while pour recup les info de mon select 
+		$numId++; // incrementation de mon numId pour la création du tacos suivant 
+		if($artTacos1==3){ // une fois a 3 ma classe
 			$artTacos1=1;
 		}
 		echo "<article class='accueilFruitsLegumes' id='artTacos".$artTacos1."'> 
