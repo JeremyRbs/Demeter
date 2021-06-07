@@ -77,7 +77,7 @@ session_start();
 		                            var idOfTacos=$('#val4_'+id).attr('value'); // Recup le nom du tacos
 		                            //var numId=$('#panier').attr('value');
 		                            var numI=$('#inventaire').attr('value'); //Mise a jour de la varible 
-		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+id+" "+numId); // code pour debug
+		                            console.log(suplementForCM+" "+numberForCM+" "+sizeForCM+" "+id); // code pour debug
 		                            console.log(numI); // code pour debug
 		                            
 		                            console.log(idOfTacos); // code pour debug
@@ -88,7 +88,7 @@ session_start();
 										type:'post', // envoie avec la methode post
 										data:{  // debut du tableau de données 
 											'id' : i, 
-											'numId' : numId,
+											//'numId' : numId,
 											'numI' : numI,
 											'idOfTacos' : idOfTacos,
 											'suplementForCM' : suplementForCM,
