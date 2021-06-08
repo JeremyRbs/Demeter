@@ -22,9 +22,9 @@
             $boite = "thermo";
         }
         if($_POST["livraison"] == 'true'){
-            $livraison = "O";
-        }else{
             $livraison = "N";
+        }else{
+            $livraison = "O";
         }
            //$nom_client = $_POST["nom_client"];
            $client =  "INSERT INTO `COMMANDE` (`NumCom`, `NomClient`, `TelClient`, `AdrClient`, `CP_Client`, `VilClient`, `Date`, `HeureDispo`, `TypeEmbal`, `A_Livrer`, `EtatLivraison`, `CoutLiv`, `IdLivreur`, `DateArchiv`) VALUES (NULL, '".$nom_client."', '".$tel_client."', '".$adresse_de_livraison."', '".$code_postal."', '".$ville."', CURRENT_DATE(), CURRENT_TIME(), '".$boite."', '".$livraison."', 'N', NULL, NULL, NULL);";

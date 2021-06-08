@@ -132,7 +132,6 @@ session_start();
 		</article>
 		<article class="" id="artPanier4">
 			<?php echo "<p id='inventaire' value='".$_SESSION['i']."'></p>"; ?>
-
 			<?php echo "<button id='nav-menu_1' type='submit' class='btn btn-primary'>Valider la commande de ".$prixTotal."€ </button> "?>
 		</article>
 		<div class="clear"></div>
@@ -188,6 +187,7 @@ session_start();
 								'livraison' : livraison
 							 },
 							success:function(data){
+
 								location.reload(true);
 							
 						}
