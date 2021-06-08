@@ -34,7 +34,7 @@ echo json_encode($return_arr);
             $suplementForCM = $_POST["suplementForCM"];
             $numberForCM = $_POST["numberForCM"];
             $sizeForCM = $_POST["sizeForCM"];
-            $_SESSION['i'] = $i;
+            $_SESSION['i'] = 0+$i;
 
             //$_SESSION['numId'] = $numId;
             $_SESSION['tacos'.$i.'_idOfTacos'] = $idOfTacos;
@@ -56,7 +56,7 @@ echo json_encode($return_arr);
             echo "<br>"."<br>".$sql."<br>"."<br>".$idOfTacos;
             $row = $req->fetch(PDO::FETCH_ASSOC);
             echo htmlentities($row['PrixUHT']);
-            $_SESSION['tacos'.$i.'_prix'] = htmlentities($row['PrixUHT']).'€';
+            $_SESSION['tacos'.$i.'_prix'] = htmlentities($row['PrixUHT']);
             $_SESSION['tacos'.$i.'_suplementForCM'] = $suplementForCM;
             $_SESSION['tacos3'.$i] = htmlentities($row['IdProd']);
 

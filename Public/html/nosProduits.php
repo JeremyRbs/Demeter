@@ -2,6 +2,7 @@
 // On démarre la session AVANT d'écrire du code HTML
 session_start();
 
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -44,7 +45,12 @@ session_start();
 
 		<div id="div-principal">
 		<h1 id="h1-nos-produits">Nos produits</h1> <!-- Titre de ma div principal -->
-		<?php echo "<p id='inventaire' value='".$_SESSION['i']."'></p>"; ?> <!-- Cette balise <p> "invisible" me permet de récupérer la variable du nombre de  tacos commandé sur cette page qui est stocker dans ma session plus bas. Par exemple si je prend 2 tacos sur ma page nos produit, que je change de page et que je reviens pour prendre plus de tacos, alors, cette varible me sera retourné avec la valeur 2 ce qui me permet de la garder en mémoire pour mon panier -->
+		<?php if($_SESSION['i']>0){
+						$_SESSION['i'];
+					}else{
+						$_SESSION['i'] = 0;
+					}
+					echo "<p id='inventaire' value='".$_SESSION['i']."'></p>"; ?> <!-- Cette balise <p> "invisible" me permet de récupérer la variable du nombre de  tacos commandé sur cette page qui est stocker dans ma session plus bas. Par exemple si je prend 2 tacos sur ma page nos produit, que je change de page et que je reviens pour prendre plus de tacos, alors, cette varible me sera retourné avec la valeur 2 ce qui me permet de la garder en mémoire pour mon panier -->
 		<hr size="5" id="ligne-div-principal"> <!-- Petit ligne de séparation pour le style -->
 		<section>
 

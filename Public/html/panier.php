@@ -62,13 +62,22 @@ session_start();
 				<?php
 					$i = 1;
 					$prix = 0;
-					$IdTacos = $_SESSION['tacos3'.$i];
+					$prixTotal = 0;
+					if($_SESSION['i']>0){
+						$_SESSION['i'];
+					}else{
+						$_SESSION['i'] = 0;
+					}
+					
+					//echo $_SESSION['i'];
+					//$IdTacos = $_SESSION['tacos'.$i];
 					//$numId = $_SESSION['numId'];
 					while ($i <= $_SESSION['i']){
-						$prixTot = $_SESSION['tacos'.$i.'_prix']*$_SESSION['tacos'.$i.'_numberForCM']."€";
+						//echo $_SESSION['tacos'.$i.'_prix'];
+						$prixTot = $_SESSION['tacos'.$i.'_prix']*$_SESSION['tacos'.$i.'_numberForCM'];
 						echo "<tr class='tableau_produitSelectionnes' >
 								<td class='td_imp'> ".$_SESSION['tacos'.$i.'_numberForCM']." ".$_SESSION['tacos'.$i.'_idOfTacos']." ".$_SESSION['tacos'.$i.'_suplementForCM']." ".$_SESSION['tacos'.$i.'_sizeForCM']."</td>
-								<td class='td_imp' id='".$i."'> ".$prixTot."</td>
+								<td class='td_imp' id='".$i."'> ".$prixTot."€ </td>
 							</tr>";
 						
 						$prixTotal = $prixTotal + $prixTot;
