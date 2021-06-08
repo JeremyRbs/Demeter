@@ -12,7 +12,7 @@
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
 
-<link href="/ProjetDemeter/DemeterRepository/Public/CSS/Style.css" rel="stylesheet">
+<link href="../CSS/Style.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
@@ -118,30 +118,30 @@
                                             $sql = $pdo->query('SELECT * FROM PRODUIT');
                                             while($row = $sql->fetch()) {
                                                 echo "<tr id=".$row["IdProd"]." class='table-row'><td>"
-                                                    ."<input class='input' value='".$row['Image']."'></td><td>"
-                                                    ."<input class='input' value='".$row['NomProd']."'></td><td>"
-                                                    ."<input class='input' value='".$row['IngBase1']."'><br>"
-                                                    ."<input class='input' value='".$row['IngBase2']."'><br>"
-                                                    ."<input class='input' value='".$row['IngBase3']."'><br>"
-                                                    ."<input class='input' value='".$row['IngBase4']."'><br>"
-                                                    ."<input class='input' value='".$row['IngBase5']."'><br>"
-                                                    ."<input class='input' value='".$row['IngBase6']."'><br>"
-                                                    ."<input class='input' value='".$row['IngBase7']."'><br>"
-                                                    ."<input class='input' value='".$row['IngBase8']."'><br>"
-                                                    ."<input class='input' value='".$row['IngBase9']."'><br>"
-                                                    ."<input class='input' value='".$row['IngBase10']."'><br>"."</td><td>"
-                                                    ."<input class='input' value='".$row['IngOpt1']."'><br>"
-                                                    ."<input class='input' value='".$row['IngOpt2']."'><br>"
-                                                    ."<input class='input' value='".$row['IngOpt3']."'><br>"
-                                                    ."<input class='input' value='".$row['IngOpt4']."'><br>"
-                                                    ."<input class='input' value='".$row['IngOpt5']."'><br>"
-                                                    ."<input class='input' value='".$row['IngOpt6']."'><br>"."</td><td>"
-                                                    ."<select name='thelist' value='".$row['Taille']."'>
+                                                    ."<input id='image_rec' class='input' value='".$row['Image']."'></td><td>"
+                                                    ."<input id='nom_rec' class='input' value='".$row['NomProd']."'></td><td>"
+                                                    ."<input id='ingBase_1_rec' class='input' value='".$row['IngBase1']."'><br>"
+                                                    ."<input id='ingBase_2_rec' class='input' value='".$row['IngBase2']."'><br>"
+                                                    ."<input id='ingBase_3_rec' class='input' value='".$row['IngBase3']."'><br>"
+                                                    ."<input id='ingBase_4_rec' class='input' value='".$row['IngBase4']."'><br>"
+                                                    ."<input id='ingBase_5_rec' class='input' value='".$row['IngBase5']."'><br>"
+                                                    ."<input id='ingBase_6_rec' class='input' value='".$row['IngBase6']."'><br>"
+                                                    ."<input id='ingBase_7_rec' class='input' value='".$row['IngBase7']."'><br>"
+                                                    ."<input id='ingBase_8_rec' class='input' value='".$row['IngBase8']."'><br>"
+                                                    ."<input id='ingBase_9_rec' class='input' value='".$row['IngBase9']."'><br>"
+                                                    ."<input id='ingBase_10_rec' class='input' value='".$row['IngBase10']."'><br>"."</td><td>"
+                                                    ."<input id='ingOpt_1_rec' class='input' value='".$row['IngOpt1']."'><br>"
+                                                    ."<input id='ingOpt_2_rec' class='input' value='".$row['IngOpt2']."'><br>"
+                                                    ."<input id='ingOpt_3_rec' class='input' value='".$row['IngOpt3']."'><br>"
+                                                    ."<input id='ingOpt_4_rec' class='input' value='".$row['IngOpt4']."'><br>"
+                                                    ."<input id='ingOpt_5_rec' class='input' value='".$row['IngOpt5']."'><br>"
+                                                    ."<input id='ingOpt_6_rec' class='input' value='".$row['IngOpt6']."'><br>"."</td><td>"
+                                                    ."<select id='taille_rec' name='thelist' value='".$row['Taille']."'>
                                                         <option>S</option>
                                                         <option>M</option>
                                                         <option>L</option>
                                                         <option>XL</option></td><td>"
-                                                    ."<input class='input' value='".$row['PrixUHT']."'></td><td>"
+                                                    ."<input id='prix_rec' class='input' value='".$row['PrixUHT']."'></td><td>"
                                                     .'<input type="submit" class="button btn-modif-recette" value="Modifier">'
                                                     ."<br><br>".'<input type="submit" class="button btn-sup-recette" value="Supprimer">'
                                                     ."</td></tr>";
@@ -178,18 +178,53 @@
                     });
 
                     $('.btn-modif-recette').click(function() {
-                       let id = $(this).parent().parent().attr('id');
-                       $.ajax({ 
-
-                            type: 'post',   // toujours travailler en post quand on doit envoyer des données au serveur
-                            url: '../../Model/Recette/modifierRecette.php', 
-                            data: JSON.stringify({ "NomFourn" : id }),
-                            success: function(){
-                                alert("Modifié !");
-                            }
-                        });
+                        let idAvant = $(this).parent().parent().attr('id');
+                        let image = $("#image_rec").val();
+                        let nom = $("#nom_rec").val();
+                        let ingBase_1 = $("#ingBase_1_rec").val();
+                        let ingBase_2 = $("#ingBase_2_rec").val();
+                        let ingBase_3 = $("#ingBase_3_rec").val();
+                        let ingBase_4 = $("#ingBase_4_rec").val();
+                        let ingBase_5 = $("#ingBase_5_rec").val();
+                        let ingBase_6 = $("#ingBase_6_rec").val();
+                        let ingBase_7 = $("#ingBase_7_rec").val();
+                        let ingBase_8 = $("#ingBase_8_rec").val();
+                        let ingBase_9 = $("#ingBase_9_rec").val();
+                        let ingBase_10 = $("#ingBase_10_rec").val();
+                        let ingOpt_1 = $("#ingOpt_1_rec").val();
+                        let ingOpt_2 = $("#ingOpt_2_rec").val();
+                        let ingOpt_3 = $("#ingOpt_3_rec").val();
+                        let ingOpt_4 = $("#ingOpt_4_rec").val();
+                        let ingOpt_5 = $("#ingOpt_5_rec").val();
+                        let ingOpt_6 = $("#ingOpt_6_rec").val();
+                        let taille = $("#taille_rec").val();
+                        let prix = $("#prix_rec").val();
                         
-                        window.location.reload();
+                        console.log(JSON.stringify({ "IdIngred" : idAvant, "Image" : image, "NomProd" : nom,
+                                                    "IngBase1" : ingBase_1, "IngBase2" : ingBase_2, "IngBase3" : ingBase_3,
+                                                    "IngBase4" : ingBase_4, "IngBase5" : ingBase_5, "IngBase6" : ingBase_6,
+                                                    "IngBase7" : ingBase_7, "IngBase8" : ingBase_8, "IngBase9" : ingBase_9,
+                                                    "IngBase10" : ingBase_10, "IngOpt1" : ingOpt_1, "IngOpt2" : ingOpt_2,
+                                                    "IngOpt3" : ingOpt_3, "IngOpt4" : ingOpt_4, "IngOpt5" : ingOpt_5,
+                                                    "IngOpt6" : ingOpt_6, "Taille" : taille, "PrixUHT" : prix }));
+                        
+                        $.ajax({ 
+
+                             type: 'post',   // toujours travailler en post quand on doit envoyer des données au serveur
+                             url: '../../Model/Recette/modifierRecette.php', 
+                             data: JSON.stringify({ "IdProd" : idAvant, "Image" : image, "NomProd" : nom,
+                                                    "IngBase1" : ingBase_1, "IngBase2" : ingBase_2, "IngBase3" : ingBase_3,
+                                                    "IngBase4" : ingBase_4, "IngBase5" : ingBase_5, "IngBase6" : ingBase_6,
+                                                    "IngBase7" : ingBase_7, "IngBase8" : ingBase_8, "IngBase9" : ingBase_9,
+                                                    "IngBase10" : ingBase_10, "IngOpt1" : ingOpt_1, "IngOpt2" : ingOpt_2,
+                                                    "IngOpt3" : ingOpt_3, "IngOpt4" : ingOpt_4, "IngOpt5" : ingOpt_5,
+                                                    "IngOpt6" : ingOpt_6, "Taille" : taille, "PrixUHT" : prix }),
+                             success: function(){
+                                 alert("Modifié !");
+                             }
+                         });
+
+                         window.location.reload();
                         
                     });
 
@@ -236,7 +271,7 @@
                                     
                                             // On récupère tout le contenu de la table PRODUIT avec fournisseur
                                             //$sql = $pdo->query('SELECT * FROM ingredient JOIN fourn_ingr ON ingredient.IdIngred = fourn_ingr.IdIngred');
-                                            /*while($row = $sql->fetch()) {
+                                            while($row = $sql->fetch()) {
                                                 echo "<tr id=".$row["IdIngred"]." class='table-row'><td>"
                                                     ."<input id='idVrai_ing' class='input' value='".$row['NomIngred']."'></td><td>"
                                                     ."<input id='stock_ing' class='input' value='".$row['StockReel']."'></td><td>"
@@ -247,7 +282,7 @@
                                                     .'<input type="submit" name="mod_ingr" class="button btn-modif-ingredient" value="Modifier">'
                                                     ."<br><br>".'<input type="submit" name="sup_ingr" class="button btn-sup-ingredient" value="Supprimer">'
                                                     ."</td></tr>";
-                                            }*/
+                                            }
                                     
                                             // On récupère tout le contenu de la table PRODUIT sans fournisseur
                                             $sql = $pdo->query('SELECT IdIngred, NomIngred, StockReel, Unite, PrixUHT_Moyen, Frais, DateArchiv FROM INGREDIENT');
