@@ -25,7 +25,7 @@ require_once ('../../controller/connexion.php');
 ?>
 </head>
 
-<body>
+<body onLoad="window.setTimeout('history.go(0)', 10000)">
 	<header>
 
 		<nav id="bandeau-accueil">
