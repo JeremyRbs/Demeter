@@ -29,7 +29,7 @@ session_start();
 			<li class="liDeNav"><a href="../html/nosProduits.php"><button id="nav-menu" type="submit" class="btn btn-primary">Nos produits</button></a> <a href="../html/pageCuisine.php"><button id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button></a>
 				<a href="../html/pageGerant.php"><button id="button-gerant" type="submit" class="btn btn-primary">Gérant</button></a>
 				<a href="../html/pageLivraison.php"><button id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
-			</li> <a href="../html/panier.php"><button id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
+			</li> <a href="../html/panier.php"><button id="button-panier" type="submit" class="btn btn-primary">Panier<?php echo " : ".$_SESSION['i'] ?></button></a>
 
 		</nav>
 	</header>
@@ -71,9 +71,10 @@ session_start();
 <!------------------------------------------------- Debut JS ------------------------------------------------->
 <!------------------------------------------------- Debut JS ------------------------------------------------->
                         <script type="text/javascript">
-                        	var i = $('#inventaire').attr('value'); // Sauvegarde de ma variable précedement appeler en php (ne contient rien lors des premier choix de tacos)
+                        	var i = $('#inventaire').attr('value');// Sauvegarde de ma variable précedement appeler en php (ne contient rien lors des premier choix de tacos)
                         	i++; //augmentation de cette variable, puisqu'il n'y a rien a la base elle n'incrémente rien. Mais si la personne revient sur cette page pour reprendre des tacos alors la varible precedement enregistrer sera augmenter de 1
-                        	$(document).ready(function (){ // attend que la page soit charger 
+                        	$(document).ready(function (){ // attend que la page soit charger
+
                         		$('[id^=but_').click(function () { // Quand on clique sur les boutons avec l'id qui commmence par but (soit les boutons ajouter)
                         			
 									var id=$(this).val(); // Recup d'id de ces boutons 
@@ -88,7 +89,7 @@ session_start();
 		                            
 		                            console.log(idOfTacos); // code pour debug
 		                            console.log(i); // code pour debug
-		                            $.ajax( //envoie d'un requete ajax 
+		                            $.ajax( //envoie d'une requete ajax
 									{ // debut requete ajax
 										url:'../../controller/json.php', // envoie vers ce fichier
 										type:'post', // envoie avec la methode post

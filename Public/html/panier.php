@@ -2,7 +2,11 @@
 <?php
 // On démarre la session AVANT d'écrire du code HTML
 session_start();
-
+if($_SESSION['i']>0){
+						$_SESSION['i'];
+					}else{
+						$_SESSION['i'] = 0;
+					}
 ?>
 <!doctype html>
 <html lang="en">
@@ -43,7 +47,7 @@ session_start();
 				href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.php"><button
 						id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
 			</li> <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
-					id="button-panier" type="submit" class="btn btn-primary">Panier</button></a>
+					id="button-panier" type="submit" class="btn btn-primary">Panier<?php echo " : ".$_SESSION['i'] ?></button></a>
 
 		</nav>
 	</header>
@@ -63,11 +67,7 @@ session_start();
 					$i = 1;
 					$prix = 0;
 					$prixTotal = 0;
-					if($_SESSION['i']>0){
-						$_SESSION['i'];
-					}else{
-						$_SESSION['i'] = 0;
-					}
+					
 					
 					//echo $_SESSION['i'];
 					//$IdTacos = $_SESSION['tacos'.$i];
@@ -76,7 +76,7 @@ session_start();
 						//echo $_SESSION['tacos'.$i.'_prix'];
 						$prixTot = $_SESSION['tacos'.$i.'_prix']*$_SESSION['tacos'.$i.'_numberForCM'];
 						echo "<tr class='tableau_produitSelectionnes' >
-								<td class='td_imp'> ".$_SESSION['tacos'.$i.'_numberForCM']." ".$_SESSION['tacos'.$i.'_idOfTacos']." ".$_SESSION['tacos'.$i.'_suplementForCM']." ".$_SESSION['tacos'.$i.'_sizeForCM']."</td>
+								<td class='td_imp' id='numberoftacos".$i."' value='".$_SESSION['tacos'.$i.'_numberForCM']."'> ".$_SESSION['tacos'.$i.'_numberForCM']." ".$_SESSION['tacos'.$i.'_idOfTacos']." ".$_SESSION['tacos'.$i.'_suplementForCM']." ".$_SESSION['tacos'.$i.'_sizeForCM']."</td>
 								<td class='td_imp' id='".$i."'> ".$prixTot."€ </td>
 							</tr>";
 						
@@ -99,10 +99,11 @@ session_start();
 
 		</article>
 		<article class="" id="artPanier2">
-			<h2>Livraison :</h2>
+		<form>
+			<h2>Livraison : <input name="livraison" class="form-check-input" type="radio" value="" id="flexCheckDefault_4" ></h2>
 			<br>
 			<p>Adresse de livraison :</p>
-			<input id="adresse_de_livraison" type="" name="">
+			<input id="adresse_de_livraison" type="" name="" required>
 			<br>
 			<p>Code postal :</p>
 			<input id="code_postal" type="" name="">
@@ -117,22 +118,24 @@ session_start();
 			<input id="tel_client" type="" name="">
 			<br> <br>
 			<p>Choix de l'emballage :</p>
-			<br> <input class="form-check-input" type="checkbox" value=""
-				id="flexCheckDefault_3"> <label class="form-check-label"
-				for="flexCheckDefault"> Emballage standard </label> <br> 
-				<input class="form-check-input" type="checkbox" value="3" id="flexCheckDefault_1"> <label class="form-check-label" for="flexCheckDefault"> Boîte(s) isothèrme(s) + 3.00€ </label>
+			<br> 
+			<input name="amballage" class="form-check-input" type="radio" value="" id="flexCheckDefault_3"> <label class="form-check-label" for="flexCheckDefault"> Emballage standard </label> 
+			<br> 
+			<input name="amballage" class="form-check-input" type="radio" value="3" id="flexCheckDefault_1"> <label class="form-check-label" for="flexCheckDefault"> Boîte(s) isothèrme(s) + 3.00€ </label>
+		
 
 		</article>
 		<article class="" id="artPanier3">
 			<h2 id='aEmporter'>"
-				A emporter <input class="form-check-input" type="checkbox" value=""
+				A emporter <input name="livraison" class="form-check-input" type="radio" value=""
 					id="flexCheckDefault_2">
 			</h2>
+		</form>
 
 		</article>
 		<article class="" id="artPanier4">
 			<?php echo "<p id='inventaire' value='".$_SESSION['i']."'></p>"; ?>
-			<?php echo "<button id='nav-menu_1' type='submit' class='btn btn-primary'>Valider la commande de ".$prixTotal."€ </button> "?>
+			<?php echo "<button id='nav-menu_1' type='submit' class='btn btn-primary' disabled='true'>Valider la commande de ".$prixTotal."€ </button> "?>
 		</article>
 		<div class="clear"></div>
 </div>
@@ -140,24 +143,39 @@ session_start();
 <script type="text/javascript">
         	var i =1;
         	$(document).ready(function (){
-        		$('#flexCheckDefault_1').click(function () {
-        			
-        			if($("#flexCheckDefault_1").is(':checked')){
-        				var suplementForIso=$("#flexCheckDefault_1").attr('value');
+                var validation=$('#inventaire').attr('value');
+                //console.log(validation);
+                var totalnumberoftacos = 0;
+                for(i=1;i<=validation;i++){
+                    var numberoftacos = parseInt(numberoftacos);
+                    var totalnumberoftacos = parseInt(totalnumberoftacos);
+                    var numberoftacos=$('#numberoftacos'+i).attr('value');
+                    //console.log(numberoftacos);
+
+                    totalnumberoftacos = numberoftacos + totalnumberoftacos;
+                    console.log(totalnumberoftacos);
+                }
+
+        		$('#flexCheckDefault_3').click(function () {
         				var prixTotal=$("#prixTolal").attr('value');
-	        			
-	        			var prix = parseFloat(suplementForIso) + parseFloat(prixTotal);
-	        			console.log(prix);
-	        			$("#nav-menu_1").html("Valider la commande de "+prix+"€");
-        			}else{
-        				var prixTotal=$("#prixTolal").attr('value');
-        				$("#nav-menu_1").html("Valider la commande de "+prixTotal+"€");
-        			}
+        				var prix = parseFloat(prixTotal);
+        				console.log(prix);
+        				$("#nav-menu_1").html("Valider la commande de "+prix+"€");
 
         			
 			});
+
+        		$('#flexCheckDefault_1').click(function () {
+        			var suplementForIso=$("#flexCheckDefault_1").attr('value');
+        				var prixTotal=$("#prixTolal").attr('value');
+	        			
+	        			var prix = 3 + parseFloat(prixTotal);
+	        			console.log(prix);
+	        			$("#nav-menu_1").html("Valider la commande de "+prix+"€");
+        			});
         		$('#nav-menu_1').click(function () {
         			var validation=$('#inventaire').attr('value');  
+        			console.log(validation);	
         			var adresse_de_livraison=$('#adresse_de_livraison').val(); 
         			console.log(adresse_de_livraison);	
         			var code_postal=$('#code_postal').val(); 
@@ -172,7 +190,15 @@ session_start();
         			console.log(emballage);
         			var livraison=$("#flexCheckDefault_2").is(":checked");	
         			console.log(livraison);
-        			
+        			if($('#adresse_de_livraison').val()=="" || $('#code_postal').val()=="" || $('#ville').val()=="" || $('#nom_client').val()=="" || $('#tel_client').val()=="")
+        				{
+							alert("Vous devez remplir les champs en rouges");
+							$('#adresse_de_livraison').css('borderColor', 'red');
+							$('#code_postal').css('borderColor', 'red');
+							$('#ville').css('borderColor', 'red');
+							$('#nom_client').css('borderColor', 'red');
+							$('#tel_client').css('borderColor', 'red');
+						}else{
         			$.ajax(
 						{
 							url:'../../controller/deconnexion.php',
@@ -190,22 +216,61 @@ session_start();
 
 								location.reload(true);
 							
-						}
-						}
+							}
+							}
+							
+							);	
+        			
 						
-						);	
+							var now = new Date(Date.now());
+	        				var formatted = now.getHours() + "H" + (now.getMinutes()+20);
+		        			if(emballage == true){
+					            alert("Cher/Chère "+nom_client+" vos tacos son en préparation. Ils vous seront livrée dans une boite en carton à l'adresse suivante : "+adresse_de_livraison+" vers "+formatted);
+					        }else{
+					            alert("Cher/Chère "+nom_client+" vos tacos sont en préparation. Ils vous seront livrée dans une boite isothèrme à l'adresse suivante : "+adresse_de_livraison+" vers "+formatted);
+					        }
+						}
         			
         			
-        		alert("Votre commande est en préparation !");
+        		
+
+        		//Cher/Chère Paul Antonof vous avez commandé une grande pizza avec du fromage, des tomates, et du jambon. Elle vous sera livrée dans une boite isotherme à l'adresse suivante : 141 avenue boucicaut vers 20h 20min 
 			});
         		$('#flexCheckDefault_2').click(function () {
         			
         			if($("#flexCheckDefault_2").is(':checked')){
         				$( "#adresse_de_livraison" ).prop( "disabled", true );
+        				$("#adresse_de_livraison").val('');
         				$( "#ville" ).prop( "disabled", true );
+        				$("#ville").val('');
+        				$( "#flexCheckDefault_3" ).prop( "disabled", true );
+        				$( "#flexCheckDefault_1" ).prop( "disabled", true );
+        				$( "#nav-menu_1" ).prop( "disabled", false );
         			}else{
         				$( "#adresse_de_livraison" ).prop( "disabled", false );
         				$( "#ville" ).prop( "disabled", false );
+        				$( "#flexCheckDefault_3" ).prop( "disabled", false );
+        				$( "#flexCheckDefault_1" ).prop( "disabled", false );
+        				$( "#nav-menu_1" ).prop( "disabled", false );
+        			}
+        			
+			});
+        		$('#flexCheckDefault_4').click(function () {
+        			
+        			if($("#flexCheckDefault_4").is(':checked')){
+        				$( "#nav-menu_1" ).prop( "disabled", false );
+        				$( "#adresse_de_livraison" ).prop( "disabled", false );
+        				$( "#ville" ).prop( "disabled", false );
+        				$( "#flexCheckDefault_3" ).prop( "disabled", false );
+        				$( "#flexCheckDefault_1" ).prop( "disabled", false );
+        			}else{
+        				$( "#nav-menu_1" ).prop( "disabled", false );
+        				$( "#adresse_de_livraison" ).prop( "disabled", true );
+        				$("#adresse_de_livraison").val('');
+        				$( "#ville" ).prop( "disabled", true );
+        				$("#ville").val('');
+        				$( "#flexCheckDefault_3" ).prop( "disabled", true );
+        				$( "#flexCheckDefault_1" ).prop( "disabled", true );
         			}
         			
 			});
