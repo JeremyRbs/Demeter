@@ -1,6 +1,7 @@
  <?php
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    $idLivreur = $_GET['idLivreur'];
     
     $host = "localhost"; /* Host name */
     $user = "lambda"; /* User */
@@ -14,9 +15,10 @@ if (isset($_GET['id'])) {
     }
     $return_arr = array();
 
-    $query = "UPDATE `commande` SET `A_Livrer` = 'O' WHERE `commande`.`NumCom` = ".$id." ";
+    $query = "UPDATE `commande` SET `EtatLivraison` = 'E',`IdLivreur` = ".$idLivreur." WHERE `commande`.`NumCom` = ".$id." ";
 
     $result = mysqli_query($con, $query);
+
 
 }
 

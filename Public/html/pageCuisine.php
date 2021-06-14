@@ -23,7 +23,7 @@ require_once ('../../controller/connexion.php');
 
 ?>
 </head>
-<body onLoad="window.setTimeout('history.go(0)', 10000)">
+<body>
 	<header>
 		<nav id="bandeau-accueil">
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.php"><img
@@ -55,10 +55,7 @@ require_once ('../../controller/connexion.php');
 			<table class="table table-striped" id="benLaFrappe">
 				<colgroup span="4"></colgroup>
 				<tr>
-					<th>Commande</th>
-					<th>Horaire</th>
-					<th>Produits</th>
-					<th>Etat</th>
+
 				</tr>
 
 				<!--             	<?php
@@ -90,39 +87,42 @@ require_once ('../../controller/connexion.php');
 
 	<script type="text/javascript"> 
 	   let id;
-              $(document).ready(function(){     
-                                               
-                  $.getJSON( "lectfiles3.php", function(mess) {
-
-              		$.each(mess, function(key,val){
-                  		$('#benLaFrappe').append("<tr id= "+ val['numCom']+"> <td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> + <td> <input type='checkbox' id='subscribeNews'> <td> <td type = hidden>"+ val['numCom'] +"</td></tr>");                  		
-                  	
-                      	});
-
-              		$('#benLaFrappe').delegate('input:checkbox', 'change', function(){	 
-                        id = $(this).parent().parent().attr('id');
-                        console.log(id);
-                      	if(this.checked) {
-                          $(this).parents("table tr").remove();
-
-                       
-//                       		$.getJSON( "modifierCommande.php", id, function(mess) {
-      				$.ajax({
-                        url: "modifierCommande.php",
-                        type: "GET",
-                        data: { 'id' : id },                   
-                        success: function()
-                                    {
-                                        alert("ok");                                    
-                                    }
-                    });
-//                       		});    
-                        }
-              		});  
-
-                  });             
-              	                	 
-              });
+	   var a = 0;
+	   
+		setInterval(function () {
+        	$.getJSON( "lectfiles3.php", function(mess) {
+       			$("#benLaFrappe").empty(); 
+       			$("#benLaFrappe").append("<th>Commande</th>	<th>Horaire</th> <th>Produits</th> <th>Livreur</th>");           	
+				$.each(mess, function(key,val){
+        			console.log(val['numCom']);
+        			console.log(val['nomLivreur'][0][1]);
+                  	$('#benLaFrappe').append("<tr id= "+ val['numCom']+"> <td>"+ val['client'] +"</td> <td>"+ val['heure'] +"</td> <td>"+ val['produit'] +"</td> <td><select id="+a+ "> <option value => --Sélectionner un Livreur --</options></td> </tr>");                  		
+                  	var len = val['nomLivreur'].length;
+                 	console.log(len);
+                 	console.log(a);
+                  	for(var i = 0;i<len;i++){	 
+                  		$("#"+ a).append("<option id = "+ val['nomLivreur'][i][1]+ ">"+ val['nomLivreur'][i]+ "</options>");
+                    	console.log(a);                   			
+                  	} 
+                    a++;
+              	});
+              	$('select').change(function(){	
+              		var mon_id_select = $("select option:selected").attr("id");
+                  	console.log('options' + mon_id_select); 
+					console.log('test');
+                    id = $(this).parent().parent().attr('id');
+                    console.log('id' + id);
+                    	$(this).parents("table tr").remove();                       
+      					$.ajax({
+                            url: "modifierCommande.php",
+                            type: "GET",
+                            data: { 'id' : id ,'idLivreur' : mon_id_select},                   
+                            success: function(){alert("ok");}
+                    	});
+                    
+              	});  
+        	});                         	                	 
+		}, 3000);
               
         </script>
 	<footer class="footer">

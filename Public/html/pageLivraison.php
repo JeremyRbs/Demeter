@@ -25,7 +25,7 @@ require_once ('../../controller/connexion.php');
 ?>
 </head>
 
-<body onLoad="window.setTimeout('history.go(0)', 10000)">
+<body>
 	<header>
 
 		<nav id="bandeau-accueil">
@@ -51,24 +51,6 @@ require_once ('../../controller/connexion.php');
 		</nav>
 	</header>
 
-	<!-- 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="/">Demeter Tacos</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-		</div>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="/">Connexion</a></li>
-			</ul>
-		</div>
-	</nav> -->
 	<div id="div-principal">
 		<h1>Accès livreur</h1>
 		<hr size="5" id="ligne-div-principal">
@@ -78,63 +60,7 @@ require_once ('../../controller/connexion.php');
 			<div class="col-md-8">
 				<table class="table table-striped" id="benLaFrappe2">
 					<colgroup span="4"></colgroup>
-					<tr>
-						<th>Commande</th>
-						<th>Contenue</th>
-						<th>Adresse</th>
-						<th>Heure de Livraison</th>
 
-					</tr>
-					<tr>
-						<?php
-/*
-    try {
-
-//         $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
-//         $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom =" + $requete + "");
-//         $requet3 = $pdo->query("SELECT * from Detail where Num_OF = " + $requet2 + "");
-
-        $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O'");
-
-
-    } catch (PDOException $e) {
-        print $e->getMessage();
-    }
-    while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
-
-        ?>
-						<td><?php echo $commande['NomClient']; ?></td>
-						<td><?php echo $commande['NomProd']; ?></td>
-						<td><?php  echo $commande['AdrClient']; ?> </td>
-						<td><?php  echo $commande['HeureDispo']; ?></td>
-						<?php
-    }
-*/
-    /*
-     * try {
-     * // $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'N'");
-     * // $requete = $pdo->query("SELECT NumCom from commande where A_Livrer = O");
-     * // $requet2 = $pdo->query("SELECT NumOf from com_det where NumCom =" + $requete + "");
-     * // $requet3 = $pdo->query("SELECT * from Detail where Num_OF = " + $requet2 + "");
-     *
-     * $requet = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = detail.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O'");
-     *
-     * } catch (PDOException $e) {
-     * print $e->getMessage();
-     * }
-     * while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
-     *
-     * ?>
-     * <td><?php echo $commande['NomClient']; ?></td>
-     * <td><?php echo $commande['NomProd']; ?></td>
-     * <td><?php echo $commande['AdrClient']; ?> </td>
-     * <td><?php echo $commande['HeureDispo']; ?></td>
-     * <?php
-     * }
-     */
-
-    ?>
-					</tr>
 				</table>
 			</div>
 		</div>
@@ -142,43 +68,18 @@ require_once ('../../controller/connexion.php');
 			affiché sur cette map.<br>N'oubliez pas, livrer rapidement est notre
 			priorité !<br>Bonne livraison !
 		</span> <br> <br>
-		<iframe
-			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.422945223361!2d4.84486971560188!3d46.776269779138346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f2fcc679801fdd%3A0x4a42dadcb29915dc!2sCnam%20%3A%20Conservatoire%20National%20des%20Arts%20et%20M%C3%A9tiers!5e0!3m2!1sfr!2sfr!4v1619595439783!5m2!1sfr!2sfr"
-			width="600" height="450" style="border: 0;" allowfullscreen=""
-			loading="lazy"></iframe>
+		<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" sandbox="allow-forms allow-scripts allow-same-origin" src="https://www.geoportail.gouv.fr/embed/visu.html?c=4.102641455280456,46.7978436164658&z=6&l0=ORTHOIMAGERY.ORTHOPHOTOS::GEOPORTAIL:OGC:WMTS&permalink=yes" allowfullscreen></iframe>
+		
+<!-- 		<iframe -->
+<!-- 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTfNqff7oJSkhyCQAXZxuHY-uaRjjlMCE&callback=initMap">" -->
+<!-- 			width="600" height="450" style="border: 0;" allowfullscreen="" -->
+<!-- 			loading="lazy"></iframe> -->
 		<h2>Commande livré</h2>
 		<div class="row">
 			<div class="col-md-8">
 				<table class="table table-striped" id="benLaFrappe3">
 					<colgroup span="4"></colgroup>
-					<tr>
-						<th>ID Commande</th>
-						<th>Contenue</th>
-						<th>Heure de Livraison</th>
-						<th>Language</th>
-					</tr>
-					<?php
-    /*
-     * try {
-     * // $requete = $pdo->query("SELECT * from Detail INNER JOIN com_det ON detail.Num_OF = com_det.Num_OF INNER JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND EtatLivraison = 'O'");
-     * // } catch (PDOException $e) {
-     * // print $e->getMessage();
-     * // }
-     * // while ($commande = $requete->fetch()) { // FETCH POUR RECUPERER LES DONNEES
-     *
-     * ?>
-     * <!-- <tr>
-     * <td><?php echo $commande['NomClient']; ?></td>
-     * <td><?php echo $commande['NomProd']; ?></td>
-     * <td><?php echo $commande['AdrClient']; ?> </td>
-     * <td><?php echo $commande['HeureDispo']; ?></td>
-     * </tr> -->
-     * <?php
-     * // }
-     */
-    ?>
-					<tr>
-					</tr>
+
 				</table>
 			</div>
 		</div>
@@ -186,55 +87,52 @@ require_once ('../../controller/connexion.php');
 	</div>
 	<script type="text/javascript"> 
 	   let id;
-              $(document).ready(function(){     
+	   
+	   
+     //         $(document).ready(function(){     
                                                
-                  $.getJSON( "lectfiles4.php", function(mess) {
-
-              		$.each(mess, function(key,val){
-                  		$('#benLaFrappe2').append("<tr id= "+ val['numCom']+ "><td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> + <td> <input type='checkbox' id='subscribeNews'> <td> </tr>");
-                  		
-                      	});
-
+	   	setInterval(function () {
+        	$.getJSON( "lectfiles4.php", function(mess) {
+            		$("#benLaFrappe2").empty();
+              		$('#benLaFrappe2').append("<tr><th>Nom</th><th>Contenue</th><th>Heure de Livraison</th><th>Adresse de Livraison</th><th>Livreur</th><th>Confirmation</th></tr>");
+              		$.each(mess, function(key,val){              			
+                  		$('#benLaFrappe2').append("<tr id= "+ val['numCom']+"><td>"+ val['client'] +"</td><td>"+ val['produit'] +"</td> <td>"+ val['heure'] +"</td> <td>"+ val['adresse'] +"</td> <td>"+ val['livreur'] +"</td> <td> <input type='checkbox' id='subscribeNews'> </td> </tr>");                  		
+                    });
               		$('#benLaFrappe2').delegate('input:checkbox', 'change', function(){	 
-                        id = $(this).parent().parent().attr('id');
-                  		
+                        id = $(this).parent().parent().attr('id');                  		
                       	if(this.checked) {
                           $(this).parents("table tr").remove();
-
-                       
-//                       		$.getJSON( "modifierCommande.php", id, function(mess) {
-      				$.ajax({
-                        url: "modifierCommande2.php",
-                        type: "GET",
-                        data: { 'id' : id },                   
-                        success: function()
-                                    {
-                                        alert("ok");                                    
-                                    }
-                    });
-//                       		});    
+      						$.ajax({
+                                url: "modifierCommande2.php",
+                                type: "GET",
+                                data: { 'id' : id },                   
+                                success: function()
+                                            {
+                                                alert("ok");                                    
+                                            }
+                            });
                         }
               		});  
-
-                  });             
+           });
+  		}, 3000);
               	                	 
-              });
+              
               
    	</script>
 	<script type="text/javascript"> 
-              $(document).ready(function(){     
+		setInterval(function () {
                                                
                   $.getJSON( "lectfiles5.php", function(mess) {
+           			$("#benLaFrappe3").empty();
+          			$('#benLaFrappe3').append("<tr><th>Nom</th><th>Heure de Livraison</th><th>Contenue</th></tr>");
 
               		$.each(mess, function(key,val){
-                  		$('#benLaFrappe3').append("<tr><td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> + <td> <input type='checkbox' id='subscribeNews'> <td> </tr>");
+                  		$('#benLaFrappe3').append("<tr><td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> </tr>");
                   		
                       	});
-  
-
-                  });             
-              	                	 
-              });
+                  });                           	                	 
+		}, 3000);
+        
               
    	</script>
 	<footer class="footer">

@@ -36,39 +36,18 @@ if (! $con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 $return_arr = array();
-$nomLivreur;
 
-$query = "SELECT HeureDispo, NomClient,  GROUP_CONCAT( NomProd) as NomProd, commande.NumCom  from Detail JOIN com_det ON detail.Num_OF = com_det.Num_OF JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND commande.EtatLivraison = 'N'";// GROUP BY NomClient
-$query2 = "SELECT Nom, IdLivreur from Livreur";
+$query = "SELECT `Nom` FROM `livreur`";
 
 $result = mysqli_query($con, $query);
-$result2 = mysqli_query($con, $query2);
-
-$a = 0;
-while ($row = mysqli_fetch_assoc($result2)) {
-    $nomLivreur[$a] = array(
-        $row['Nom'],
-        $row['IdLivreur']
-    );
-
-    $a ++;
-}
-
 $i = 0;
 while ($row = mysqli_fetch_array($result)) {
 
-    $heure = $row['HeureDispo'];
-    $nom = $row['NomClient'];
-    $prod = $row['NomProd'];
-    $numCom = $row['NumCom'];
+    $nom = $row['Nom'];
+
     $return_arr[$i] = array(
-        "heure" => $heure,
-        "client" => $nom,
-        "produit" => $prod,
-        "numCom"=>$numCom,
-        "nomLivreur" => $nomLivreur
-        
-        
+        "Nom" => $nom,
+
     );
     $i ++;
 }
