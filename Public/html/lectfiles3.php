@@ -38,7 +38,7 @@ if (! $con) {
 $return_arr = array();
 $nomLivreur;
 
-$query = "SELECT HeureDispo, NomClient,  GROUP_CONCAT( NomProd) as NomProd, commande.NumCom  from Detail JOIN com_det ON detail.Num_OF = com_det.Num_OF JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND commande.EtatLivraison = 'N'";// GROUP BY NomClient
+$query = "SELECT HeureDispo, NomClient,  GROUP_CONCAT( NomProd) as NomProd, commande.NumCom  from Detail JOIN com_det ON detail.Num_OF = com_det.Num_OF JOIN commande ON commande.NumCom = com_det.NumCom WHERE commande.A_Livrer = 'O' AND commande.EtatLivraison = 'N' ORDER BY commande.HeureDispo ";// GROUP BY NomClient
 $query2 = "SELECT Nom, IdLivreur from Livreur";
 
 $result = mysqli_query($con, $query);
