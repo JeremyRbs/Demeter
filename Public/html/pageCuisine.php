@@ -52,7 +52,7 @@ require_once ('../../controller/connexion.php');
 		<h1 id="h1-nos-produits">Cuisine</h1>
 		<hr size="5" id="ligne-div-principal">
 		<article class="" id="tableuCuisine">
-			<table class="table table-striped" id="benLaFrappe">
+			<table class="table table-striped" id="table">
 				<colgroup span="4"></colgroup>
 				<tr>
 
@@ -91,16 +91,17 @@ require_once ('../../controller/connexion.php');
 	   
 		setInterval(function () {
         	$.getJSON( "lectfiles3.php", function(mess) {
-       			$("#benLaFrappe").empty(); 
-       			$("#benLaFrappe").append("<th>Commande</th>	<th>Horaire</th> <th>Produits</th> <th>Livreur</th>");           	
+       			$("#table").empty(); 
+       			$("#table").append("<th>Commande</th>	<th>Horaire</th> <th>Produits</th> <th>Livreur</th>");           	
 				$.each(mess, function(key,val){
         			console.log(val['numCom']);
         			console.log(val['nomLivreur'][0][1]);
-                  	$('#benLaFrappe').append("<tr id= "+ val['numCom']+"> <td>"+ val['client'] +"</td> <td>"+ val['heure'] +"</td> <td>"+ val['produit'] +"</td> <td><select id="+a+ "> <option value => --Sélectionner un Livreur --</options></td> </tr>");                  		
+                  	$('#table').append("<tr id= "+ val['numCom']+"> <td>"+ val['client'] +"</td> <td>"+ val['heure'] +"</td> <td>"+ val['produit'] +"</td> <td><select id="+a+ "> <option value => --Sélectionner un Livreur --</options></td> </tr>");                  		
                   	var len = val['nomLivreur'].length;
                  	console.log(len);
                  	console.log(a);
-                  	for(var i = 0;i<len;i++){	 
+                 	$("#"+ a).append("<option> TEST </options>");
+                 	for(var i = 0;i<len;i++){	 
                   		$("#"+ a).append("<option id = "+ val['nomLivreur'][i][1]+ ">"+ val['nomLivreur'][i]+ "</options>");
                     	console.log(a);                   			
                   	} 

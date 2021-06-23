@@ -58,7 +58,7 @@ require_once ('../../controller/connexion.php');
 		<h2>Commande à livrer</h2>
 		<div class="row">
 			<div class="col-md-8">
-				<table class="table table-striped" id="benLaFrappe2">
+				<table class="table table-striped" id="table2">
 					<colgroup span="4"></colgroup>
 
 				</table>
@@ -68,7 +68,7 @@ require_once ('../../controller/connexion.php');
 			affiché sur cette map.<br>N'oubliez pas, livrer rapidement est notre
 			priorité !<br>Bonne livraison !
 		</span> <br> <br>
-		<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" sandbox="allow-forms allow-scripts allow-same-origin" src="https://www.geoportail.gouv.fr/embed/visu.html?c=4.102641455280456,46.7978436164658&z=6&l0=ORTHOIMAGERY.ORTHOPHOTOS::GEOPORTAIL:OGC:WMTS&permalink=yes" allowfullscreen></iframe>
+		<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" sandbox="allow-forms allow-scripts allow-same-origin" src="https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyDTfNqff7oJSkhyCQAXZxuHY-uaRjjlMCE" allowfullscreen></iframe>
 		
 <!-- 		<iframe -->
 <!-- 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTfNqff7oJSkhyCQAXZxuHY-uaRjjlMCE&callback=initMap">" -->
@@ -77,7 +77,7 @@ require_once ('../../controller/connexion.php');
 		<h2>Commande livré</h2>
 		<div class="row">
 			<div class="col-md-8">
-				<table class="table table-striped" id="benLaFrappe3">
+				<table class="table table-striped" id="table3">
 					<colgroup span="4"></colgroup>
 
 				</table>
@@ -93,12 +93,12 @@ require_once ('../../controller/connexion.php');
                                                
 	   	setInterval(function () {
         	$.getJSON( "lectfiles4.php", function(mess) {
-            		$("#benLaFrappe2").empty();
-              		$('#benLaFrappe2').append("<tr><th>Nom</th><th>Contenue</th><th>Heure de Livraison</th><th>Adresse de Livraison</th><th>Livreur</th><th>Confirmation</th></tr>");
+            		$("#table2").empty();
+              		$('#table2').append("<tr><th>Nom</th><th>Contenue</th><th>Heure de Livraison</th><th>Adresse de Livraison</th><th>Livreur</th><th>Confirmation</th></tr>");
               		$.each(mess, function(key,val){              			
-                  		$('#benLaFrappe2').append("<tr id= "+ val['numCom']+"><td>"+ val['client'] +"</td><td>"+ val['produit'] +"</td> <td>"+ val['heure'] +"</td> <td>"+ val['adresse'] +"</td> <td>"+ val['livreur'] +"</td> <td> <input type='checkbox' id='subscribeNews'> </td> </tr>");                  		
+                  		$('#table2').append("<tr id= "+ val['numCom']+"><td>"+ val['client'] +"</td><td>"+ val['produit'] +"</td> <td>"+ val['heure'] +"</td> <td>"+ val['adresse'] +"</td> <td>"+ val['livreur'] +"</td> <td> <input type='checkbox' id='subscribeNews'> </td> </tr>");                  		
                     });
-              		$('#benLaFrappe2').delegate('input:checkbox', 'change', function(){	 
+              		$('#table2').delegate('input:checkbox', 'change', function(){	 
                         id = $(this).parent().parent().attr('id');                  		
                       	if(this.checked) {
                           $(this).parents("table tr").remove();
@@ -123,11 +123,11 @@ require_once ('../../controller/connexion.php');
 		setInterval(function () {
                                                
                   $.getJSON( "lectfiles5.php", function(mess) {
-           			$("#benLaFrappe3").empty();
-          			$('#benLaFrappe3').append("<tr><th>Nom</th><th>Heure de Livraison</th><th>Contenue</th></tr>");
+           			$("#table3").empty();
+          			$('#table3').append("<tr><th>Nom</th><th>Heure de Livraison</th><th>Contenue</th></tr>");
 
               		$.each(mess, function(key,val){
-                  		$('#benLaFrappe3').append("<tr><td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> </tr>");
+                  		$('#table3').append("<tr><td>"+ val['client'] +"</td><td>"+ val['heure'] +"</td><td>"+ val['produit'] +"</td> </tr>");
                   		
                       	});
                   });                           	                	 
@@ -135,6 +135,8 @@ require_once ('../../controller/connexion.php');
         
               
    	</script>
+   	
+   	
 	<footer class="footer">
 		<div class="centrageFooter">
 			<a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.html">Accueil</a>
