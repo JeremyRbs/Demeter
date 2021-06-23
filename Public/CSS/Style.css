@@ -3,76 +3,77 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 /* selecteur {propriété:valeur,propriété:valeur1;}*/
 
-/*------------------------------------ RESET ------------------------------------*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
-	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
-	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
-	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
-	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
-	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
-	output, ruby, section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	background: transparent;
+/*Header*/
+.navbar {
+    transition: all 0.4s;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup,
-	menu, nav, section {
-	display: block;
-}
-/*------------------------------------ FIN RESET ------------------------------------*/
-
-/*------------------------------------ BALISE ------------------------------------*/
-h1 {
-	font-size: 5em;
+.navbar .nav-link {
+    color: #fff;
 }
 
-h2 {
-    color: white;
-    font-size: 2em;
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
 }
 
-h3 {
-    font-weight: bold;
+.navbar .navbar-brand {
+    color: #fff;
 }
 
-h4 {
-	
+#navbarSupportedContent{
+    margin-top: 0.25%;
 }
 
-nav {
-	
+/* Change navbar styling on scroll */
+.navbar.active {
+    background: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/*--------------------------------- GERANT ---------------------------------*/
-
-.input{
-    border: none;
-    background-color: unset;
+.navbar.active .nav-link {
+    color: #555;
 }
 
-.button{
-    display: inline-block;
-    box-shadow: none;
-    appearance: none;
-    outline: 0;
-    background-color: #008B8B;
-    height: 45px;
-    line-height: 42px;
-    padding: 0 30px;
-    font-size: 20px;
-    border-radius: 30px;
-    color: white;
-    cursor: pointer;
-    transition: all .5s;
-    transition-timing-function: cubic-bezier(.2, 3, .4, 1);
-    user-select: none;
-    margin: auto;
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #555;
+}
+
+
+/* Change navbar styling on small viewports */
+@media (max-width: 991.98px) {
+    .navbar {
+        background: #fff;
+    }
+
+    .navbar .navbar-brand, .navbar .nav-link {
+        color: #555;
+    }
+}
+
+.text-small {
+    font-size: 0.9rem !important;
+}
+
+
+body {
+    min-height: 110vh;
+    background-color: #4ca1af;
+    background-image: linear-gradient(135deg, #4ca1af 0%, #c4e0e5 100%);
+}
+
+/* Main */
+
+main{
+    margin-top : 10%;
+    margin-bottom : 10%;
 }
 
 /* Sert au background du menu des onglets */
@@ -86,13 +87,14 @@ nav {
 }
 
 /* Sert à mettre la couleur du texte aux onglets */
-a{
+a.onglet{
     text-decoration:none;
     color:#fff;
     font-weight: bold;
 }
 ul.tabs{
    margin-left: 70px;
+   margin-bottom: 0px;
 }
 
 .tabs li,ul.tabs{
@@ -127,6 +129,7 @@ ul.tabs{
     padding:50px;
     margin-left:70px;
     margin-right:70px;
+    margin-bottom: 400px;
 }
 
 /* Sert au texte */
@@ -163,17 +166,30 @@ ul.tabs{
   box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
 }
 
-th {
-    border-width:1.5px; 
-    border-style:solid; 
-    border-color:black;
-    color: white;
-}
+[class~=button] {
+    
+    box-shadow: 0px 10px 14px -7px #082226;
+    background:linear-gradient(to bottom, #17695b 5%, #3ab5af 100%);
+    background-color:#17695b;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:20px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
 
-td {
-    border-width:1px; 
-    border-style:solid; 
-    border-color:black;
+    &:hover {
+            background:linear-gradient(to bottom, #3ab5af 5%, #17695b 100%);
+            background-color:#3ab5af;
+    }
+    &:active {
+            position:relative;
+            top:1px;
+    }
 }
 
 @media screen and (max-width: 740px) {
@@ -187,283 +203,75 @@ td {
 @media screen and (max-width: 480px) {
     
 }
-/*--------------------------------------------------------------------------*/
 
-section {
-	
+/*Footer*/
+.footer-basic {
+  padding:40px 0;
+  background-color:#ffffff;
+  color:#4b4c4d;
+  padding-bottom: 350px;
 }
 
-article {
-	margin-bottom: 2%;
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
 }
 
-/*------------------------------------ HEADER ------------------------------------*/
-
-header {
-	margin-bottom: 50px;
+.footer-basic li {
+  padding:0 10px;
 }
 
-#img_demeter_defaut {
-	height: 100%;
-	width: 140px;
-	float: left;
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
 }
 
-#bandeau-accueil {
-	background-color: white;
-	height: 80px;
-        margin-bottom: 20px;
+.footer-basic ul a:hover {
+  opacity:1;
 }
 
-.liDeNav {
-	display: inline;
-	padding-left: 20px;
-	float: left;
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:25px;
 }
 
-#button-panier {
-	float: right;
-	margin-top: 20px;
-	margin-right: 2%
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
 }
 
-#button-livreur {
-	
+.footer-basic .social > a:hover {
+  opacity:0.9;
 }
 
-/*------------------------------------ FIN HEADER ------------------------------------*/
-
-/*------------------------------------ DEBUT FOOTER ------------------------------------*/
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
+}
 
 footer {
-	background-color: white;
-	margin-top: 5%;;
-	height: 250px;
-        text-align: center;
-        margin-bottom: 0px;
+    padding-top: 100px;
 }
 
-/*------------------------------------ FIN FOOTER ------------------------------------*/
-
-/*--- FIN BALISE ---*/
-#wrapper {
-	margin-top: 2%;
-	margin-left: 20%;
-	margin-right: 20%;
-	background-color: #a7ed1d;
+.block{
+    background-color: white;
+    margin: 70px;
+    padding: 20px;
 }
-
-.clear {
-	clear: both;
-}
-
-/*------------------------------------ ARTICLE ACCUEIL ------------------------------------*/
-body {
-	background-color: #8A8A8A;
-}
-
-#img_defaut {
-	height: 100%;
-	width: 40%;
-	float: left;
-	margin-right: 5%;
-}
-
-#div-principal {
-	background-color: #E3E3E3;
-	margin-left: 1%;
-	margin-top: 1%;
-	margin-right: 1%;
-}
-
-#ligne-div-principal {
-	color: black;
-}
-
-#h1-nos-produits {
-	margin-left: 1%
-}
-
-.accueilFruitsLegumes {
-	background-color: white;
-	border: solid 1px black;
-}
-
-#artTacos1 {
-	width: 49%;
-	float: left;
-}
-
-#artTacos2 {
-	width: 49%;
-	float: right;
-}
-
-.div-menus {
-	margin-right: 2%;
-	float: right;
-	width: 50%;
-}
-
-
-
-.form-check-input{
-	margin-bottom: 3%;
-}
-
-.form-select{
-	width: 20%;
-	margin-bottom: 5%;
-	float: left;
-	margin-right: 2%;
-}
-
-/*------------------------------------ FIN PAGE NOS PRODUITS ------------------------------------*/
-/*------------------------------------ DEBUT PAGE PANIER ------------------------------------*/
-#artPanier1 {
-	overflow: scroll;
-	border: #000000 1px solid;
-	width: 33%;
-	height: 450px;
-	margin-left: 1%;
-	float: left;
-}
-
-#artPanier2 {
-	width: 30%;
-	height: 350px;
-	margin-left: 3%;
-	float: left;
-	border-right: black 2px solid
-}
-
-#artPanier3 {
-	width: 30%;
-	height: 350px;
-	margin-left: 3%;
-	float: left;
-}
-
-#artPanier4 {
-	width: 30%;
-	height: 50px;
-	margin-left: 27%;
-	margin-top: 3%;
-	float: left;
-}
-
-ligneVertical {
-	border-left: 2px solid #000;
-	display: inline-block;
-	height: 130px;
-	margin: 0 20px;
-}
-
-#tr_produitSelectionnes {
-	font-size: 1.5em;
-	background-color: #8A8A8A;
-}
-
-.tableau_produitSelectionnes {
-	border: black 1px solid;
-	overflow: scroll;
-	font-size: 1.2em;
-}
-
-.td_imp {
-	background-color: #CFCFCF;
-}
-
-.td_pair {
-	
-}
-
-#div_livraison {
-	border-right: black 2px solid;
-	width: 30%;
-	float: right;
-}
-
-#aEmporter {
-	margin-top: 30%;
-}
-
-/*------------------------------------ FIN PAGE PANIER ------------------------------------*/
-
-@media screen and (max-width: 740px) {
-	#artTacos1 {
-		display: block;
-		float: none;
-		width: 98%;
-		margin-left: 1%;
-	}
-	#artTacos2 {
-		display: block;
-		float: none;
-		width: 98%;
-		margin-left: 1%;
-	}
-	#artTacos3 {
-		display: block;
-		float: none;
-		width: 98%;
-		margin-left: 1%;
-	}
-	#artTacos4 {
-		display: block;
-		float: none;
-		width: 98%;
-		margin-left: 1%;
-	}
-	#img_chevre-miel_defaut {
-		height: 100%;
-		width: 40%;
-		float: left;
-		margin-right: 5%;
-	}
-	#img_savoyard_defaut {
-		height: 100%;
-		width: 40%;
-		float: left;
-		margin-right: 5%;
-	}
-	#img_3-fromages_defaut {
-		height: 100%;
-		width: 40%;
-		float: left;
-		margin-right: 5%;
-	}
-	#img_black-forest_defaut {
-		height: 100%;
-		width: 40%;
-		float: left;
-		margin-right: 5%;
-	}
-	#button-panier {
-		font-size: 0.5em;
-		margin-top: 27px;
-	}
-	#button-livreur {
-		font-size: 0.5em;
-	}
-	#nav-menu {
-		font-size: 0.5em;
-	}
-	#button-gerant {
-		font-size: 0.5em;
-	}
-	#button-cuisine {
-		font-size: 0.5em;
-	}
-	.liDeNav {
-		margin-top: 27px;
-	}
-} /*fermeture du media max-width 740px*/
-@media screen and (max-width: 480px) {
-	#artTacos1, #artTacos2, #artTacos3, #artTacos4 {
-		display: block;
-		float: none;
-		width: 98%;
-		margin-right: 1%;
-	}
-} /*fermeture du media max-width 480px*/
