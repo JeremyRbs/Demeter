@@ -6,12 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link href="../CSS/Style.css" rel="stylesheet">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -21,38 +16,51 @@
 </head>
 
 <body>
-    <header>
-	<nav id="bandeau-accueil">    
-            <a href="/ProjetDemeter/DemeterRepository/Public/html/accueil.php">
-                <img id="img_demeter_defaut" src="/ProjetDemeter/DemeterRepository/Public/Images/demeter.PNG">
-            </a> 
-            <li class="liDeNav">
-                <a href="/ProjetDemeter/DemeterRepository/Public/html/nosProduits.php">
-                    <button id="nav-menu" type="submit" class="btn btn-primary">Nos produits</button>
-                </a> 
-                <a href="/ProjetDemeter/DemeterRepository/Public/html/pageCuisine.php">
-                    <button id="button-cuisine" type="submit" class="btn btn-primary">Cuisine</button>
-                </a>
-                <a href="/ProjetDemeter/DemeterRepository/Public/html/pageGerant.php">
-                    <button id="button-gerant" type="submit" class="btn btn-primary">Gérant</button>
-                </a>
-                <a href="/ProjetDemeter/DemeterRepository/Public/html/pageLivraison.php">
-                    <button id="button-livreur" type="submit" class="btn btn-primary">Livreur</button>
-                </a>
-            </li> 
-            <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.php">
-                <button id="button-panier" type="submit" class="btn btn-primary">Panier</button>
-            </a>
-	</nav>
-    </header>
-    <body>
-        <div>
+    
+        <!-- Navbar-->
+        <header class="header">
+            <nav class="navbar navbar-expand-lg fixed-top py-3">
+                <div class="container"><a href="../../Public/html/accueil.php" class="navbar-brand text-uppercase font-weight-bold">DEMETER</a>
+                    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active"><a href="../../Public/html/accueil.php" class="nav-link text-uppercase font-weight-bold">Accueil<span class="sr-only"></span></a></li>
+                            <li class="nav-item"><a href="../../Public/html/nosProduits.php" class="nav-link text-uppercase font-weight-bold">Nos produits</a></li>
+                            <li class="nav-item"><a href="../../Public/html/pageCuisine.php" class="nav-link text-uppercase font-weight-bold">Cuisine</a></li>
+                            <li class="nav-item"><a href="../../Public/html/pageGerant.php" class="nav-link text-uppercase font-weight-bold">Gérant</a></li>
+                            <li class="nav-item"><a href="../../Public/html/pageLivraison.php" class="nav-link text-uppercase font-weight-bold">Livreur</a></li>
+                        </ul>
+                    </div>
+                </div>
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a href="../../Public/html/panier.php" class="nav-link text-uppercase font-weight-bold">Panier</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <script>
+            $(function () {
+                $(window).on('scroll', function () {
+                    if ( $(window).scrollTop() > 10 ) {
+                        $('.navbar').addClass('active');
+                    } else {
+                        $('.navbar').removeClass('active');
+                    }
+                });
+            });
+        </script>
+        
+        <main>
             <ul class="tabs">
-                <li class="active"><a href="#home">Accueil</a></li>
-                <li><a href="#stocks">Gestion des stocks</a></li>
-                <li><a href="#recettes">Recettes</a></li>
-                <li><a href="#ingredients">Ingrédients</a></li>
-                <li><a href="#fournisseur">Fournisseur</a></li>
+                <li class="active"><a class="onglet" href="#home">Accueil</a></li>
+                <li><a class="onglet" href="#stocks">Gestion des stocks</a></li>
+                <li><a class="onglet" href="#recettes">Recettes</a></li>
+                <li><a class="onglet" href="#ingredients">Ingrédients</a></li>
+                <li><a class="onglet" href="#fournisseur">Fournisseur</a></li>
             </ul>
             <div class="tabs-content">
                 <div class="tab-content active" id="home">Cette page est dédiée au gérant.</div>
@@ -62,38 +70,42 @@
                     
                     <br>
                         
-                    <div class="">
+                    <div class="row">
                         <div class="col-md-8">
-                                <table id="stock" class="table">
-                                        <colgroup span="7"></colgroup>
-                                        <tr class="table-header">
-                                                <th>Produit</th>
-                                                <th>Nom Produit</th>
-                                                <th>Taille(s)</th>
-                                                <th>Prix HT</th>
-                                                <th>Nombre ingrédients</th>
-                                                <th>Options</th>
-                                                <th>Création</th>
-                                        </tr>
+                            <table id="stock" class="table">
+                                    <colgroup span="6"></colgroup>
+                                    <tr class="table-header">
+                                            <th>Ingrédient</th>
+                                            <th>Quantité</th>
+                                            <th>Unité</th>
+                                            <th>Prix HT</th>
+                                            <th>Frais</th>
+                                    </tr>
 
-                                        <?php
-                                            // On récupère tout le contenu de la table PRODUIT
-                                            $sql = $pdo->query('SELECT * FROM PRODUIT');
-                                            while($row = $sql->fetch()) {
-                                                echo "<tr class='table-row'><td>"
-                                                    .$row['IdProd']."</td><td>"
-                                                    .$row['NomProd']."</td><td>"
-                                                    .$row['Taille']."</td><td>"
-                                                    .$row['PrixUHT']."</td><td>"
-                                                    .$row['NbIngBase']."</td><td>"
-                                                    .$row['NbIngOpt']."</td><td>"
-                                                    .$row['DateArchiv']."</td></tr>";
+                                    <?php
+                                        // On récupère tout le contenu de la table PRODUIT sans fournisseur
+                                        $sql = $pdo->query('SELECT IdIngred, NomIngred, StockReel, Unite, PrixUHT_Moyen, Frais, DateArchiv FROM INGREDIENT');
+                                        while($row = $sql->fetch()) {
+                                            
+                                            echo "<tr id=".$row["IdIngred"]." class='table-row'><td>"
+                                                ."<p>".$row['NomIngred']."</p></td><td>"
+                                                ."<p>".$row['StockReel']."</p></td><td>"
+                                                ."<p>".$row['Unite']."</p></td><td>"
+                                                ."<p>".$row['PrixUHT_Moyen']."</p></td><td>"
+                                                ."<p>".$row['Frais']."</p></td></tr>";
+                                            
+                                            $quantite = $row['StockReel'];
+                                            
+                                            if($quantite == 0){
+                                                $sql_2 = $pdo->query("UPDATE `ingredient` SET `StockReel` = '5' WHERE `ingredient`.`IdIngred` = ".$row["IdIngred"]."");
                                             }
-                                        ?>
-                                </table>
+                                        }
+                                    ?>
+                            </table>
                         </div>
                     </div>
                 </div>
+                
                 <div class="tab-content" id="recettes">
                     
                     <?php require_once ('../../controller/connexion.php'); ?>
@@ -102,7 +114,7 @@
                         
                     <div class="row">
                         <div class="col-md-8">
-                                <table id="table-recettes" class="table table-striped">
+                                <table id="table-recettes" class="table">
                                         <colgroup span="7"></colgroup>
                                         <tr class="table-header">
                                                 <th>Photo</th>
@@ -172,8 +184,6 @@
                             }
 
                         });
-                    
-                        window.location.reload();
                         
                     });
 
@@ -223,8 +233,6 @@
                                  alert("Modifié !");
                              }
                          });
-
-                         window.location.reload();
                         
                     });
 
@@ -240,8 +248,7 @@
                         }
 
                         });
-
-                        window.location.reload();
+                        
                     })
 
                 });
@@ -253,10 +260,10 @@
                     <?php require_once ('../../controller/connexion.php'); ?>
                     
                     <br>
-                        
+
                     <div class="row">
                         <div class="col-md-8">
-                                <table id="table-ingredients" class="table table-striped">
+                                <table id="table-ingredients" class="table">
                                         <colgroup span="7"></colgroup>
                                         <tr class="table-header">
                                                 <th>Ingrédient</th>
@@ -287,7 +294,7 @@
                                             // On récupère tout le contenu de la table PRODUIT sans fournisseur
                                             $sql = $pdo->query('SELECT IdIngred, NomIngred, StockReel, Unite, PrixUHT_Moyen, Frais, DateArchiv FROM INGREDIENT');
                                             while($row = $sql->fetch()) {
-                                                echo "<tr id=".$row["IdIngred"]."><td>"
+                                                echo "<tr id=".$row["IdIngred"]." class='table-row'><td>"
                                                     ."<input id='idVrai_ing' class='input' value='".$row['NomIngred']."'></td><td>"
                                                     ."<input id='stock_ing' class='input' value='".$row['StockReel']."'></td><td>"
                                                     ."<input id='unite_ing' class='input' value='".$row['Unite']."'></td><td>"
@@ -325,8 +332,6 @@
                             }
 
                         });
-                    
-                        window.location.reload();
                        
                     });
 
@@ -351,8 +356,6 @@
                              }
                          });
                         
-                        window.location.reload();
-                        
                     });
 
                     $('.btn-sup-ingredient').click(function() {
@@ -368,7 +371,6 @@
 
                         });
 
-                        window.location.reload();
                     })
 
                 });
@@ -383,7 +385,7 @@
 
                     <div class="row">
                         <div class="col-md-8">
-                                <table id="table-fournisseur" class="table table-striped">
+                                <table id="table-fournisseur" class="table">
                                     <colgroup span="7"></colgroup>
                                     <tr class="table-header">
                                             <th>Nom</th>
@@ -440,8 +442,6 @@
 
                     });
                     
-                    window.location.reload();
-                    
                 });
                 
                 $('.btn-modif-four').click(function() {
@@ -465,7 +465,6 @@
                         }
                     });
                     
-                    window.location.reload();
                 });
                 
                 $('.btn-sup-four').click(function() {
@@ -482,13 +481,11 @@
 
                     });
 
-                    window.location.reload();
                 })
                 
             });
 
         </script>
-        
         <script type="text/javascript">
             
             !function(){
@@ -563,12 +560,19 @@
         }();
             
         </script>
+        </main>
         
+        <!-- Footer -->
+        <div class="footer-basic">
+            <footer>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="../../Public/html/accueil.php">Accueil</a></li>
+                    <li class="list-inline-item"><a href="../../Public/html/nosProduits.php">Nos produits</a></li>
+                    <li class="list-inline-item"><a href="../../Public/html/aPropos.php">À propos</a></li>
+                    <li class="list-inline-item"><a href="mentionsLegales">Mentions légales</a></li>
+                </ul>
+                <p class="copyright">Demeter Tacos © 2021</p>
+            </footer>
+        </div>
     </body>
-    <footer>
-        <a href="../html/accueil.php">Accueil</a>
-        <a href="../html/nosProduits.php">Nos Produits</a> 
-        <a href="">Notre Projet</a> 
-        <a href="">Mentions légales</a>
-    </footer>
 </html>
