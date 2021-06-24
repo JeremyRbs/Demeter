@@ -24,8 +24,25 @@ if ($body != null) {
     $return_arr = array();
 
     $query = "UPDATE fournisseur SET NomFourn = '".$id."', Adresse = '".$adr."', CodePostal = '".$code."', Ville = '".$ville."', Tel = '".$tel."', ParDefaut = '".$def."' WHERE NomFourn = '".$idAvant."' ";
-
+    
     $result = mysqli_query($con, $query);
+    
+    $query_2 = "SELECT * from fournisseur where NomFourn = '" . $id . "'";
+
+    $resultat = mysqli_query($con, $query_2);
+    while ($ligne = $resultat->fetch_assoc()) {
+        $id = $ligne['NomFourn'];
+        $adr = $ligne['Adresse'];
+        $code = $ligne['CodePostal'];
+        $ville = $ligne['Ville'];
+        $tel = $ligne['Tel'];
+        $def = $ligne['ParDefaut'];
+    }
+    $con->close();
+
+    $array = ['NomFourn' => $id, 'Adresse' => $adr, 'CodePostal' => $code, 'Ville' => $ville, 'Tel' => $tel, 'ParDefaut' => $def];
+
+    echo json_encode($array);
 
 }
 
