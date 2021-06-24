@@ -87,8 +87,8 @@ require_once ('../../controller/connexion.php');
 
 	<script type="text/javascript"> 
 	   let id;
-	   var a = 0;
 	   
+    	    a = 0;
 		setInterval(function () {
         	$.getJSON( "lectfiles3.php", function(mess) {
        			$("#table").empty(); 
@@ -99,11 +99,10 @@ require_once ('../../controller/connexion.php');
                   	$('#table').append("<tr id= "+ val['numCom']+"> <td>"+ val['client'] +"</td> <td>"+ val['heure'] +"</td> <td>"+ val['produit'] +"</td> <td><select id="+a+ "> <option value => --Sélectionner un Livreur --</options></td> </tr>");                  		
                   	var len = val['nomLivreur'].length;
                  	console.log(len);
-                 	console.log(a);
-                 	$("#"+ a).append("<option> TEST </options>");
+                 	console.log(a + "t");
                  	for(var i = 0;i<len;i++){	 
                   		$("#"+ a).append("<option id = "+ val['nomLivreur'][i][1]+ ">"+ val['nomLivreur'][i]+ "</options>");
-                    	console.log(a);                   			
+                    	console.log(a+"test");                   			
                   	} 
                     a++;
               	});
