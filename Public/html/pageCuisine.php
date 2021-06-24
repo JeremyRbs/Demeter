@@ -88,9 +88,9 @@ require_once ('../../controller/connexion.php');
 	<script type="text/javascript"> 
 	   let id;
 	   
+    	    a = 0;
 		setInterval(function () {
         	$.getJSON( "lectfiles3.php", function(mess) {
-    	    a = 0;
        			$("#table").empty(); 
        			$("#table").append("<th>Commande</th>	<th>Horaire</th> <th>Produits</th> <th>Livreur</th>");           	
 				$.each(mess, function(key,val){
