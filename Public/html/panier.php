@@ -48,6 +48,7 @@ if($_SESSION['i']>0){
 						id="button-livreur" type="submit" class="btn btn-primary">Livreur</button></a>
 			</li> <a href="/ProjetDemeter/DemeterRepository/Public/html/panier.php"><button
 					id="button-panier" type="submit" class="btn btn-primary">Panier<?php echo " : ".$_SESSION['i'] ?></button></a>
+            
 
 		</nav>
 	</header>
