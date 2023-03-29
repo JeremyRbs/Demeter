@@ -1,6 +1,6 @@
 # Demeter
 
-WEB Project : LSI-2 - 1st year CNAM Licence - Promo 2019
+WEB Project : 1st year CNAM Licence - Promo 2019
 
 This project aimed to use the notions studied in class while working as a team.
  
